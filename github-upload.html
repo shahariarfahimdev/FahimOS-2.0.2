@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GitHub Upload</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="main">
+      <section class="panel is-visible">
+        <div class="hero">
+          <div>
+            <p class="eyebrow">Standalone page</p>
+            <h2>Upload Directly To GitHub</h2>
+            <p>Choose a file, enter your repository details, and upload it through the GitHub Contents API.</p>
+          </div>
+          <div class="date-card">
+            <a class="ghost-btn" href="index.html">Back to planner</a>
+            <a class="ghost-btn" href="https://github.com/settings/tokens?type=beta" target="_blank" rel="noreferrer">Create Token</a>
+          </div>
+        </div>
+        <div class="grid two">
+          <article class="card">
+            <h3>Repository Target</h3>
+            <div class="form-grid">
+              <label>Owner<input id="owner" type="text" placeholder="your-user-name"></label>
+              <label>Repository<input id="repo" type="text" placeholder="life-command-center"></label>
+              <label>Branch<input id="branch" type="text" value="main"></label>
+              <label>Path in repo<input id="path" type="text" placeholder="uploads/file.pdf"></label>
+            </div>
+            <label>GitHub token<input id="token" type="password" placeholder="Fine-grained token with Contents write"></label>
+            <label>Commit message<input id="message" type="text" value="Upload file"></label>
+            <label class="upload-btn">Choose File<input id="file" type="file"></label>
+            <button id="upload" class="primary-btn" type="button">Upload</button>
+          </article>
+          <article class="card">
+            <h3>Status</h3>
+            <div id="status" class="large-note">Ready.</div>
+            <p class="muted">Do not share your token. Use a fine-grained token with only the repository and Contents write permission.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+    <script>
+      function readFileAsBase64(file) {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(String(reader.result).split(",")[1]);
+          reader.onerror = () => reject(reader.error);
+          reader.readAsDataURL(file);
+        });
+      }
+
+      document.querySelector("#upload").addEventListener("click", async () => {
+        const status = document.querySelector("#status");
+        const file = document.querySelector("#file").files[0];
+        const owner = document.querySelector("#owner").value.trim();
+        const repo = document.querySelector("#repo").value.trim();
+        const branch = document.querySelector("#branch").value.trim() || "main";
+        const path = document.querySelector("#path").value.trim();
+        const token = document.querySelector("#token").value.trim();
+        const message = document.querySelector("#message").value.trim() || `Upload ${file?.name || "file"}`;
+        if (!file || !owner || !repo || !path || !token) {
+          status.textContent = "Missing file, owner, repo, path, or token.";
+          return;
+        }
+        status.textContent = "Uploading...";
+        try {
+          const content = await readFileAsBase64(file);
+          const url = `https://api.github.com/repos/${owner}/${repo}/contents/${encodeURIComponent(path).replaceAll("%2F", "/")}`;
+          const response = await fetch(url, {
+            method: "PUT",
+            headers: {
+              Authorization: `Bearer ${token}`,
+              Accept: "application/vnd.github+json",
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ message, content, branch })
+          });
+          const result = await response.json();
+          if (!response.ok) throw new Error(result.message || "GitHub upload failed");
+          status.innerHTML = `Uploaded. <a href="${result.content.html_url}" target="_blank" rel="noreferrer">Open file on GitHub</a>`;
+        } catch (error) {
+          status.textContent = error.message;
+        }
+      });
+    </script>
+  </body>
+</html>

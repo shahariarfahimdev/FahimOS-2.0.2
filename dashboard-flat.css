@@ -1,0 +1,4593 @@
+﻿/* FahimOS final dashboard override: flat one-card tiles, no stacked deck visuals. */
+.card-stack,
+.stack-layer,
+.card-layer,
+.layered-card,
+.home-dashboard-tile .stack-layer,
+.home-dashboard-tile .card-layer {
+  display: none !important;
+}
+
+body.is-home-page .home-bottom-dock {
+  display: flex !important;
+}
+
+body.is-home-page .home-bottom-dock[hidden] {
+  display: none !important;
+}
+
+body.is-home-page #showHomeDock {
+  display: inline-flex !important;
+}
+
+body.is-home-page #showHomeDock[hidden] {
+  display: none !important;
+}
+
+.show-dock-button {
+  right: 18px !important;
+  bottom: max(18px, env(safe-area-inset-bottom)) !important;
+  z-index: 10050 !important;
+  align-items: center !important;
+  gap: 8px !important;
+  min-height: 42px !important;
+  padding: 9px 14px !important;
+  border-radius: 12px !important;
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, var(--border)) !important;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--surface) 86%, transparent), color-mix(in srgb, var(--primary) 18%, var(--surface))) !important;
+  color: var(--text) !important;
+  box-shadow: 0 14px 34px color-mix(in srgb, var(--accent) 28%, transparent) !important;
+  backdrop-filter: blur(16px) !important;
+}
+
+body.is-home-page #dashboard .home-collapse-mini-bar {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  width: min(1280px, calc(100vw - 28px)) !important;
+  margin: 16px auto 12px !important;
+  padding: 11px 12px !important;
+  border-radius: 14px !important;
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--border)) !important;
+  background: color-mix(in srgb, var(--surface) 86%, transparent) !important;
+}
+
+body.is-home-page #dashboard .home-collapse-mini-bar span {
+  flex: 1 1 auto !important;
+  margin: 0 !important;
+  color: var(--text) !important;
+  font-size: clamp(1rem, 1.4vw, 1.35rem) !important;
+  font-weight: 950 !important;
+  text-transform: none !important;
+}
+
+body.is-home-page #dashboard .home-collapse-mini-bar button {
+  flex: 0 0 auto !important;
+  min-height: 30px !important;
+  height: 30px !important;
+  padding: 5px 10px !important;
+  border-radius: 9px !important;
+  border: 1px solid color-mix(in srgb, var(--accent) 34%, var(--border)) !important;
+  background: color-mix(in srgb, var(--card) 80%, transparent) !important;
+  color: var(--text) !important;
+  font-size: .7rem !important;
+  font-weight: 900 !important;
+}
+
+body.is-home-page #homeCards.home-card-grid,
+#dashboard #homeCards.home-card-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+  align-items: stretch !important;
+  width: min(1280px, calc(100vw - 28px)) !important;
+  max-width: 1280px !important;
+  margin: 0 auto 36px !important;
+  padding: 0 !important;
+}
+
+body.is-home-page #homeCards > article.home-dashboard-tile,
+#dashboard #homeCards > article.home-dashboard-tile {
+  position: relative !important;
+  isolation: isolate !important;
+  display: grid !important;
+  grid-template-rows: auto 1fr !important;
+  gap: 12px !important;
+  grid-column: auto !important;
+  min-height: 174px !important;
+  height: auto !important;
+  padding: 16px !important;
+  overflow: hidden !important;
+  border-radius: 14px !important;
+  border: 1px solid color-mix(in srgb, var(--tile-accent, var(--accent)) 34%, var(--border)) !important;
+  background:
+    radial-gradient(circle at 94% 92%, color-mix(in srgb, var(--tile-accent, var(--accent)) 15%, transparent), transparent 34%),
+    linear-gradient(135deg, color-mix(in srgb, var(--tile-one, var(--surface)) 78%, transparent), color-mix(in srgb, var(--tile-two, var(--card)) 82%, transparent)) !important;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, .24) !important;
+  transform: none !important;
+  transition: border-color .18s ease, box-shadow .18s ease, filter .18s ease !important;
+}
+
+body.is-home-page #homeCards > article.home-dashboard-tile::before,
+body.is-home-page #homeCards > article.home-dashboard-tile::after,
+#dashboard #homeCards > article.home-dashboard-tile::before,
+#dashboard #homeCards > article.home-dashboard-tile::after {
+  content: none !important;
+  display: none !important;
+}
+
+body.is-home-page #homeCards > article.home-dashboard-tile:hover,
+#dashboard #homeCards > article.home-dashboard-tile:hover {
+  transform: none !important;
+  filter: brightness(1.06) saturate(1.06) !important;
+  border-color: color-mix(in srgb, var(--tile-accent, var(--accent)) 70%, white) !important;
+  box-shadow: 0 18px 42px color-mix(in srgb, var(--tile-accent, var(--accent)) 22%, rgba(0, 0, 0, .35)) !important;
+}
+
+body.is-home-page #homeCards > article.home-dashboard-tile .tile-head,
+#dashboard #homeCards > article.home-dashboard-tile .tile-head {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto auto !important;
+  align-items: start !important;
+  gap: 8px !important;
+  min-height: 0 !important;
+  height: auto !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+body.is-home-page #homeCards > article.home-dashboard-tile .tile-head small,
+#dashboard #homeCards > article.home-dashboard-tile .tile-head small {
+  display: block !important;
+  margin-bottom: 4px !important;
+  color: color-mix(in srgb, var(--tile-accent, var(--accent)) 78%, #ffffff) !important;
+  font-size: .68rem !important;
+  font-weight: 950 !important;
+  text-transform: uppercase !important;
+}
+
+body.is-home-page #homeCards > article.home-dashboard-tile .tile-head h3,
+#dashboard #homeCards > article.home-dashboard-tile .tile-head h3 {
+  margin: 0 !important;
+  color: color-mix(in srgb, #ffffff 88%, var(--text)) !important;
+  font-size: clamp(1rem, 1.15vw, 1.22rem) !important;
+  line-height: 1.15 !important;
+  overflow-wrap: anywhere !important;
+}
+
+body.is-home-page #homeCards > article.home-dashboard-tile .tile-open-btn,
+body.is-home-page #homeCards > article.home-dashboard-tile .tile-page-btn,
+#dashboard #homeCards > article.home-dashboard-tile .tile-open-btn,
+#dashboard #homeCards > article.home-dashboard-tile .tile-page-btn {
+  min-height: 28px !important;
+  height: 28px !important;
+  padding: 4px 9px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(255, 255, 255, .22) !important;
+  background: rgba(4, 12, 24, .34) !important;
+  color: #fff !important;
+  font-size: .7rem !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+}
+
+body.is-home-page #homeCards > article.home-dashboard-tile .tile-page-btn,
+#dashboard #homeCards > article.home-dashboard-tile .tile-page-btn {
+  background: color-mix(in srgb, var(--tile-accent, var(--accent)) 34%, rgba(4, 12, 24, .32)) !important;
+}
+
+body.is-home-page #homeCards > article.home-dashboard-tile .tile-preview,
+#dashboard #homeCards > article.home-dashboard-tile .tile-preview {
+  display: block !important;
+  min-height: 58px !important;
+  max-height: none !important;
+  overflow: visible !important;
+  color: color-mix(in srgb, #ffffff 82%, var(--text)) !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+body.is-home-page #homeCards > article.home-dashboard-tile.is-collapsed,
+#dashboard #homeCards > article.home-dashboard-tile.is-collapsed {
+  min-height: 150px !important;
+}
+
+body.is-home-page #homeCards > article.home-dashboard-tile.is-collapsed .tile-preview,
+#dashboard #homeCards > article.home-dashboard-tile.is-collapsed .tile-preview {
+  display: block !important;
+  max-height: 66px !important;
+  overflow: hidden !important;
+  opacity: .82 !important;
+  -webkit-mask-image: linear-gradient(180deg, #000 58%, transparent 100%) !important;
+  mask-image: linear-gradient(180deg, #000 58%, transparent 100%) !important;
+}
+
+body.is-home-page #homeCards > article.home-dashboard-tile:not(.is-collapsed),
+#dashboard #homeCards > article.home-dashboard-tile:not(.is-collapsed) {
+  min-height: 236px !important;
+}
+
+body.is-home-page #homeCards > article.home-dashboard-tile[data-home-card="overview"],
+#dashboard #homeCards > article.home-dashboard-tile[data-home-card="overview"] {
+  display: none !important;
+}
+
+body.is-home-page #homeCards > article.home-dashboard-tile[data-home-card="todos"],
+#dashboard #homeCards > article.home-dashboard-tile[data-home-card="todos"] { order: 1 !important; --tile-one:#0b5f42; --tile-two:#0c4637; --tile-accent:#34d399; }
+body.is-home-page #homeCards > article.home-dashboard-tile[data-home-card="schedules"],
+#dashboard #homeCards > article.home-dashboard-tile[data-home-card="schedules"] { order: 2 !important; --tile-one:#0b4f7a; --tile-two:#173a7d; --tile-accent:#38bdf8; }
+body.is-home-page #homeCards > article.home-dashboard-tile[data-home-card="school"],
+#dashboard #homeCards > article.home-dashboard-tile[data-home-card="school"] { order: 3 !important; --tile-one:#223d83; --tile-two:#352b72; --tile-accent:#818cf8; }
+body.is-home-page #homeCards > article.home-dashboard-tile[data-home-card="prayer"],
+#dashboard #homeCards > article.home-dashboard-tile[data-home-card="prayer"] { order: 4 !important; --tile-one:#0f766e; --tile-two:#155e75; --tile-accent:#2dd4bf; }
+body.is-home-page #homeCards > article.home-dashboard-tile[data-home-card="money"],
+#dashboard #homeCards > article.home-dashboard-tile[data-home-card="money"] { order: 5 !important; --tile-one:#166534; --tile-two:#365314; --tile-accent:#a3e635; }
+body.is-home-page #homeCards > article.home-dashboard-tile[data-home-card="latestNotes"],
+#dashboard #homeCards > article.home-dashboard-tile[data-home-card="latestNotes"] { order: 6 !important; --tile-one:#7e2258; --tile-two:#5b2b7c; --tile-accent:#f472b6; }
+body.is-home-page #homeCards > article.home-dashboard-tile[data-home-card="discipline"],
+#dashboard #homeCards > article.home-dashboard-tile[data-home-card="discipline"] { order: 7 !important; --tile-one:#4338ca; --tile-two:#0f3d63; --tile-accent:#a78bfa; }
+body.is-home-page #homeCards > article.home-dashboard-tile[data-home-card="sleep"],
+#dashboard #homeCards > article.home-dashboard-tile[data-home-card="sleep"] { order: 8 !important; --tile-one:#075985; --tile-two:#164e63; --tile-accent:#22d3ee; }
+
+body.is-home-page #homeCards > article.home-dashboard-tile[data-home-card="dailyWorkout"],
+#dashboard #homeCards > article.home-dashboard-tile[data-home-card="dailyWorkout"] {
+  order: 9 !important;
+  grid-column: 1 / -1 !important;
+  min-height: 240px !important;
+  --tile-one:#7c2d12;
+  --tile-two:#581c87;
+  --tile-accent:#fb923c;
+}
+
+.workout-suite-actions {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin-top: 2px !important;
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+.workout-suite-actions button {
+  min-height: 32px !important;
+  height: 32px !important;
+  padding: 6px 12px !important;
+  border-radius: 9px !important;
+  font-size: .76rem !important;
+}
+
+body.is-home-page #homeCards .home-widget-dismiss,
+#dashboard #homeCards .home-widget-dismiss {
+  position: absolute !important;
+  right: 10px !important;
+  bottom: 10px !important;
+  top: auto !important;
+  z-index: 5 !important;
+  width: 26px !important;
+  height: 26px !important;
+  min-height: 26px !important;
+  padding: 0 !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(255,255,255,.22) !important;
+  background: rgba(3, 7, 18, .42) !important;
+  color: #fff !important;
+}
+
+@media (max-width: 1050px) {
+  body.is-home-page #homeCards.home-card-grid,
+  #dashboard #homeCards.home-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 680px) {
+  body.is-home-page #dashboard .home-collapse-mini-bar {
+    flex-wrap: wrap !important;
+  }
+
+  body.is-home-page #dashboard .home-collapse-mini-bar span {
+    flex-basis: 100% !important;
+  }
+
+  body.is-home-page #homeCards.home-card-grid,
+  #dashboard #homeCards.home-card-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Latest home cleanup: keep the command surface only. Data and logic remain intact. */
+body.is-home-page #dashboard .today-glance-dashboard,
+body.is-home-page #dashboard .home-collapse-mini-bar,
+body.is-home-page #dashboard #widgetColorPopover,
+body.is-home-page #dashboard #homeCards {
+  display: none !important;
+}
+
+body.is-home-page #dashboard .wisdom-command-card {
+  order: 5 !important;
+}
+
+body.is-home-page #dashboard .discipline-command-card {
+  display: grid !important;
+  order: 6 !important;
+}
+
+body.is-home-page #dashboard .hero-live-pulse {
+  isolation: isolate !important;
+  overflow: hidden !important;
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, .22),
+    inset 0 0 0 1px color-mix(in srgb, var(--primary) 34%, transparent),
+    inset 0 0 28px color-mix(in srgb, var(--accent) 12%, transparent) !important;
+}
+
+body.is-home-page #dashboard .hero-live-pulse::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: -60% -10% !important;
+  z-index: -2 !important;
+  background:
+    radial-gradient(circle at 18% 45%, color-mix(in srgb, var(--primary) 22%, transparent) 0 12%, transparent 30%),
+    radial-gradient(circle at 72% 40%, color-mix(in srgb, var(--accent) 18%, transparent) 0 10%, transparent 32%),
+    linear-gradient(90deg, transparent, color-mix(in srgb, var(--primary) 10%, transparent), transparent) !important;
+  animation: pulseAmbientDrift 12s linear infinite !important;
+}
+
+body.is-home-page #dashboard .hero-live-pulse::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: -1 !important;
+  background: linear-gradient(90deg, transparent 0%, color-mix(in srgb, var(--primary) 18%, transparent) 48%, transparent 58%) !important;
+  transform: translateX(-120%) !important;
+  animation: pulseScanner 4.8s ease-in-out infinite !important;
+  opacity: .75 !important;
+}
+
+body.is-home-page #dashboard .pulse-ecg polyline {
+  stroke-dasharray: 560 !important;
+  stroke-dashoffset: 560 !important;
+  animation: pulseLineDraw 3.4s linear infinite !important;
+  filter: drop-shadow(0 0 8px color-mix(in srgb, var(--accent) 70%, transparent)) !important;
+}
+
+body.is-home-page #dashboard .pulse-wave {
+  position: absolute !important;
+  left: 18px !important;
+  top: 50% !important;
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 999px !important;
+  border: 1px solid color-mix(in srgb, var(--primary) 72%, transparent) !important;
+  transform: translateY(-50%) scale(.45) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  animation: pulseRing 2.8s ease-out infinite !important;
+}
+
+body.is-home-page #dashboard .pulse-wave-two {
+  animation-delay: 1.4s !important;
+  border-color: color-mix(in srgb, var(--accent) 72%, transparent) !important;
+}
+
+body.is-home-page #dashboard .pulse-beat,
+body.is-home-page #dashboard .pulse-tune {
+  position: absolute !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+  text-shadow: 0 0 12px color-mix(in srgb, var(--primary) 75%, transparent) !important;
+}
+
+body.is-home-page #dashboard .pulse-beat {
+  left: 42px !important;
+  top: 48% !important;
+  color: color-mix(in srgb, var(--danger, #fb7185) 82%, #fff) !important;
+  font-size: 1.12rem !important;
+  transform: translateY(-50%) !important;
+  animation: pulseHeartBeat 1.28s ease-in-out infinite !important;
+  z-index: 5 !important;
+  filter: drop-shadow(0 0 12px color-mix(in srgb, var(--danger, #fb7185) 76%, transparent)) !important;
+}
+
+body.is-home-page #dashboard .pulse-heartline {
+  position: absolute !important;
+  left: 66px !important;
+  top: 50% !important;
+  z-index: 4 !important;
+  width: clamp(90px, 14vw, 180px) !important;
+  height: 26px !important;
+  transform: translateY(-50%) !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+  opacity: .95 !important;
+}
+
+body.is-home-page #dashboard .pulse-heartline::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background:
+    linear-gradient(90deg, transparent 0 4%, color-mix(in srgb, var(--danger, #fb7185) 82%, #fff) 4% 10%, transparent 10% 17%, color-mix(in srgb, var(--danger, #fb7185) 82%, #fff) 17% 21%, transparent 21% 30%, color-mix(in srgb, var(--danger, #fb7185) 82%, #fff) 30% 34%, transparent 34% 42%, color-mix(in srgb, var(--danger, #fb7185) 82%, #fff) 42% 46%, transparent 46% 100%) !important;
+  clip-path: polygon(0 50%, 9% 50%, 13% 36%, 17% 62%, 22% 50%, 33% 50%, 38% 8%, 46% 92%, 53% 50%, 72% 50%, 77% 34%, 83% 66%, 88% 50%, 100% 50%) !important;
+  filter: drop-shadow(0 0 10px color-mix(in srgb, var(--danger, #fb7185) 70%, transparent)) !important;
+  animation: pulseHeartlineSweep 2.35s linear infinite !important;
+}
+
+body.is-home-page #dashboard .pulse-heartline i {
+  position: absolute !important;
+  top: 50% !important;
+  width: 4px !important;
+  height: 4px !important;
+  border-radius: 999px !important;
+  background: color-mix(in srgb, var(--danger, #fb7185) 86%, #fff) !important;
+  box-shadow: 0 0 14px color-mix(in srgb, var(--danger, #fb7185) 78%, transparent) !important;
+  animation: pulseHeartDot 1.6s ease-in-out infinite !important;
+}
+
+body.is-home-page #dashboard .pulse-heartline i:nth-child(1) { left: 22%; animation-delay: -.2s !important; }
+body.is-home-page #dashboard .pulse-heartline i:nth-child(2) { left: 50%; animation-delay: -.7s !important; }
+body.is-home-page #dashboard .pulse-heartline i:nth-child(3) { left: 78%; animation-delay: -1.1s !important; }
+
+body.is-home-page #dashboard .pulse-tune {
+  right: 118px !important;
+  top: 17px !important;
+  color: color-mix(in srgb, var(--accent) 86%, #fff) !important;
+  font-size: .86rem !important;
+  animation: pulseTuneFloat 4.6s ease-in-out infinite !important;
+}
+
+body.is-home-page #dashboard .pulse-tune-two {
+  right: 82px !important;
+  top: auto !important;
+  bottom: 14px !important;
+  color: color-mix(in srgb, var(--primary) 88%, #fff) !important;
+  animation-delay: 1.8s !important;
+}
+
+body.is-home-page #dashboard .pulse-mode-badge {
+  position: absolute !important;
+  right: 14px !important;
+  top: 8px !important;
+  z-index: 3 !important;
+  padding: 4px 8px !important;
+  border-radius: 999px !important;
+  border: 1px solid color-mix(in srgb, var(--primary) 34%, transparent) !important;
+  background: color-mix(in srgb, var(--surface) 78%, transparent) !important;
+  color: color-mix(in srgb, var(--accent) 84%, #fff) !important;
+  font-size: 9px !important;
+  font-weight: 900 !important;
+  letter-spacing: .1em !important;
+  text-transform: uppercase !important;
+  box-shadow: 0 0 18px color-mix(in srgb, var(--primary) 18%, transparent) !important;
+}
+
+body.is-home-page #dashboard .pulse-orbit-dot {
+  position: absolute !important;
+  z-index: 1 !important;
+  width: 5px !important;
+  height: 5px !important;
+  border-radius: 999px !important;
+  background: color-mix(in srgb, var(--accent) 86%, #fff) !important;
+  box-shadow: 0 0 16px color-mix(in srgb, var(--accent) 70%, transparent) !important;
+  opacity: .75 !important;
+  pointer-events: none !important;
+}
+
+body.is-home-page #dashboard .pulse-orbit-one {
+  left: 21% !important;
+  top: 15px !important;
+  animation: pulseOrbitDrift 6.5s ease-in-out infinite !important;
+}
+
+body.is-home-page #dashboard .pulse-orbit-two {
+  left: 54% !important;
+  bottom: 12px !important;
+  animation: pulseOrbitDrift 7.5s ease-in-out infinite reverse !important;
+}
+
+body.is-home-page #dashboard .pulse-orbit-three {
+  right: 26% !important;
+  top: 50% !important;
+  animation: pulseOrbitDrift 5.7s ease-in-out infinite !important;
+  animation-delay: 1.1s !important;
+}
+
+body.is-home-page #dashboard .pulse-spark {
+  position: absolute !important;
+  z-index: 2 !important;
+  width: 7px !important;
+  height: 7px !important;
+  border-radius: 2px !important;
+  background: color-mix(in srgb, var(--accent) 92%, #fff) !important;
+  box-shadow: 0 0 16px color-mix(in srgb, var(--accent) 80%, transparent) !important;
+  pointer-events: none !important;
+  opacity: .72 !important;
+  transform: rotate(45deg) !important;
+  animation: pulseSparkDrift 5.4s ease-in-out infinite !important;
+}
+
+body.is-home-page #dashboard .pulse-spark-one {
+  left: 31% !important;
+  top: 12px !important;
+}
+
+body.is-home-page #dashboard .pulse-spark-two {
+  left: 72% !important;
+  bottom: 13px !important;
+  animation-delay: 2.2s !important;
+}
+
+body.is-home-page #dashboard .pulse-signal-bars {
+  position: absolute !important;
+  left: 72px !important;
+  bottom: 9px !important;
+  z-index: 3 !important;
+  display: inline-flex !important;
+  align-items: end !important;
+  gap: 4px !important;
+  height: 20px !important;
+  pointer-events: none !important;
+}
+
+body.is-home-page #dashboard .pulse-signal-bars i {
+  display: block !important;
+  width: 5px !important;
+  border-radius: 6px !important;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--primary) 92%, #fff), color-mix(in srgb, var(--accent) 72%, transparent)) !important;
+  box-shadow: 0 0 12px color-mix(in srgb, var(--primary) 42%, transparent) !important;
+  animation: pulseSignalBars 1.6s ease-in-out infinite !important;
+}
+
+body.is-home-page #dashboard .pulse-signal-bars i:nth-child(1) { height: 8px !important; }
+body.is-home-page #dashboard .pulse-signal-bars i:nth-child(2) { height: 14px !important; animation-delay: .18s !important; }
+body.is-home-page #dashboard .pulse-signal-bars i:nth-child(3) { height: 20px !important; animation-delay: .36s !important; }
+
+body.is-home-page #dashboard .pulse-equalizer {
+  position: absolute !important;
+  right: 112px !important;
+  bottom: 10px !important;
+  z-index: 3 !important;
+  display: inline-flex !important;
+  align-items: end !important;
+  gap: 3px !important;
+  width: 42px !important;
+  height: 18px !important;
+  pointer-events: none !important;
+}
+
+body.is-home-page #dashboard .pulse-equalizer i {
+  display: block !important;
+  width: 5px !important;
+  height: 6px !important;
+  border-radius: 4px 4px 1px 1px !important;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 96%, #fff), color-mix(in srgb, var(--primary) 78%, transparent)) !important;
+  box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 46%, transparent) !important;
+  animation: pulseEqualize 1.1s ease-in-out infinite !important;
+}
+
+body.is-home-page #dashboard .pulse-equalizer i:nth-child(2) { animation-delay: .13s !important; }
+body.is-home-page #dashboard .pulse-equalizer i:nth-child(3) { animation-delay: .27s !important; }
+body.is-home-page #dashboard .pulse-equalizer i:nth-child(4) { animation-delay: .41s !important; }
+body.is-home-page #dashboard .pulse-equalizer i:nth-child(5) { animation-delay: .55s !important; }
+
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="equalizer"] .pulse-equalizer i {
+  animation-duration: .72s !important;
+}
+
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="equalizer"] .pulse-ecg {
+  background: repeating-linear-gradient(90deg, color-mix(in srgb, var(--accent) 22%, transparent) 0 2px, transparent 2px 13px) !important;
+}
+
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="sonar"] .pulse-ecg {
+  background:
+    radial-gradient(circle at 22% 50%, transparent 0 12px, color-mix(in srgb, var(--primary) 38%, transparent) 13px 14px, transparent 15px 28px, color-mix(in srgb, var(--accent) 22%, transparent) 29px 30px, transparent 31px),
+    linear-gradient(90deg, transparent, color-mix(in srgb, var(--primary) 10%, transparent), transparent) !important;
+}
+
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="nebula"] {
+  background:
+    radial-gradient(circle at 18% 20%, color-mix(in srgb, #8b5cf6 25%, transparent), transparent 32%),
+    radial-gradient(circle at 75% 64%, color-mix(in srgb, #06b6d4 22%, transparent), transparent 34%),
+    linear-gradient(120deg, color-mix(in srgb, #0f172a 88%, var(--card)), color-mix(in srgb, #1e1b4b 76%, var(--card))) !important;
+}
+
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="music"] .pulse-tune,
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="music"] .pulse-equalizer i {
+  animation-duration: .82s !important;
+  opacity: 1 !important;
+}
+
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="radar"] .pulse-ecg {
+  background:
+    conic-gradient(from 110deg at 20% 50%, color-mix(in srgb, var(--accent) 48%, transparent), transparent 22%, transparent),
+    radial-gradient(circle at 20% 50%, transparent 0 13px, color-mix(in srgb, var(--primary) 30%, transparent) 14px 15px, transparent 16px 34px) !important;
+}
+
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="sonar"] .pulse-signal-bars i,
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="radar"] .pulse-signal-bars i {
+  animation-duration: .92s !important;
+}
+
+@keyframes pulseLineDraw {
+  0% { stroke-dashoffset: 560; opacity: .35; }
+  18% { opacity: 1; }
+  62% { stroke-dashoffset: 0; opacity: .95; }
+  100% { stroke-dashoffset: -560; opacity: .38; }
+}
+
+@keyframes pulseRing {
+  0% { opacity: 0; transform: translateY(-50%) scale(.35); }
+  18% { opacity: .78; }
+  100% { opacity: 0; transform: translateY(-50%) scale(4.4); }
+}
+
+@keyframes pulseHeartBeat {
+  0%, 100% { transform: translateY(-50%) scale(1); }
+  14% { transform: translateY(-50%) scale(1.35); }
+  28% { transform: translateY(-50%) scale(.92); }
+  42% { transform: translateY(-50%) scale(1.18); }
+  58% { transform: translateY(-50%) scale(1); }
+}
+
+@keyframes pulseHeartlineSweep {
+  0% { transform: translateX(-84%); opacity: .25; }
+  18% { opacity: 1; }
+  100% { transform: translateX(92%); opacity: .18; }
+}
+
+@keyframes pulseHeartDot {
+  0%, 100% { transform: translateY(-50%) scale(.6); opacity: .25; }
+  50% { transform: translateY(-50%) scale(1.4); opacity: 1; }
+}
+
+@keyframes pulseTuneFloat {
+  0%, 100% { transform: translateY(0) rotate(-6deg); opacity: .48; }
+  45% { transform: translateY(-9px) rotate(8deg); opacity: 1; }
+}
+
+@keyframes pulseScanner {
+  0%, 18% { transform: translateX(-120%); }
+  58%, 100% { transform: translateX(120%); }
+}
+
+@keyframes pulseAmbientDrift {
+  0% { transform: translateX(-4%) rotate(0deg); }
+  50% { transform: translateX(4%) rotate(3deg); }
+  100% { transform: translateX(-4%) rotate(0deg); }
+}
+
+@keyframes pulseOrbitDrift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(.85); opacity: .45; }
+  35% { transform: translate3d(18px, -8px, 0) scale(1.3); opacity: 1; }
+  68% { transform: translate3d(-10px, 9px, 0) scale(.95); opacity: .62; }
+}
+
+@keyframes pulseEqualize {
+  0%, 100% { height: 5px; opacity: .55; }
+  30% { height: 17px; opacity: 1; }
+  60% { height: 9px; opacity: .78; }
+}
+
+@keyframes pulseSparkDrift {
+  0%, 100% { transform: translate3d(0,0,0) rotate(45deg) scale(.8); opacity: .38; }
+  42% { transform: translate3d(16px,-8px,0) rotate(225deg) scale(1.25); opacity: 1; }
+  72% { transform: translate3d(-10px,8px,0) rotate(315deg) scale(.92); opacity: .62; }
+}
+
+@keyframes pulseSignalBars {
+  0%, 100% { transform: scaleY(.58); opacity: .52; }
+  50% { transform: scaleY(1.12); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.is-home-page #dashboard .hero-live-pulse::before,
+  body.is-home-page #dashboard .hero-live-pulse::after,
+  body.is-home-page #dashboard .pulse-ecg polyline,
+  body.is-home-page #dashboard .pulse-wave,
+  body.is-home-page #dashboard .pulse-beat,
+  body.is-home-page #dashboard .pulse-heartline::before,
+  body.is-home-page #dashboard .pulse-heartline i,
+  body.is-home-page #dashboard .pulse-tune,
+  body.is-home-page #dashboard .pulse-orbit-dot,
+  body.is-home-page #dashboard .pulse-equalizer i,
+  body.is-home-page #dashboard .pulse-spark,
+  body.is-home-page #dashboard .pulse-signal-bars i {
+    animation: none !important;
+  }
+}
+
+/* Remove the disliked stacked detailed-dashboard tabs from Home. */
+#dashboard .home-collapse-mini-bar,
+#dashboard #widgetColorPopover,
+#dashboard #homeCards {
+  display: none !important;
+}
+
+#dashboard > .home-collapse-mini-bar,
+#dashboard > #widgetColorPopover,
+#dashboard > #homeCards {
+  display: none !important;
+}
+
+#dashboard [data-home-card="disciplineScore"],
+#dashboard [data-home-card="focusFuel"],
+#dashboard [data-home-card="faithMomentum"],
+#dashboard .optional-home-tile[data-home-card="focusFuel"],
+#dashboard .optional-home-tile[data-home-card="faithMomentum"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  max-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+#dashboard .today-glance-dashboard,
+#dashboard .life-data-section,
+#dashboard .home-right-dashboard,
+#dashboard .home-collapse-mini-bar,
+#dashboard #widgetColorPopover,
+#dashboard #homeCountdownPopup,
+#dashboard #homeCards,
+#dashboard #homeCards *,
+#dashboard [data-home-card] {
+  display: none !important;
+}
+
+#dashboard .home-mini-command-cards {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+#dashboard .home-mini-command-cards {
+  /* Removed by request: keep this selector as a guard against cached markup. */
+  display: none !important;
+}
+
+#dashboard .home-mini-command-card {
+  display: none !important;
+}
+
+#dashboard .home-mini-command-card-legacy {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+  margin-top: 16px !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+#dashboard .home-mini-command-card {
+  position: relative !important;
+  min-height: 132px !important;
+  display: grid !important;
+  align-content: space-between !important;
+  gap: 8px !important;
+  padding: 16px !important;
+  overflow: hidden !important;
+  border: 1px solid color-mix(in srgb, var(--primary) 28%, transparent) !important;
+  border-radius: 18px !important;
+  background:
+    radial-gradient(circle at 88% 18%, color-mix(in srgb, var(--accent) 24%, transparent), transparent 34%),
+    linear-gradient(135deg, color-mix(in srgb, var(--card) 82%, #0ea5e9 18%), color-mix(in srgb, var(--surface) 86%, #8b5cf6 14%)) !important;
+  color: var(--text) !important;
+  text-align: left !important;
+  box-shadow: 0 18px 40px rgba(0,0,0,.22), inset 0 0 0 1px rgba(255,255,255,.04) !important;
+  cursor: pointer !important;
+  transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease !important;
+}
+
+#dashboard .home-mini-command-card:nth-child(2) {
+  background:
+    radial-gradient(circle at 88% 18%, rgba(250,204,21,.22), transparent 34%),
+    linear-gradient(135deg, rgba(6,78,59,.82), rgba(13,148,136,.36)) !important;
+}
+
+#dashboard .home-mini-command-card:nth-child(3) {
+  background:
+    radial-gradient(circle at 88% 18%, rgba(52,211,153,.22), transparent 34%),
+    linear-gradient(135deg, rgba(20,83,45,.82), rgba(30,64,175,.36)) !important;
+}
+
+#dashboard .home-mini-command-card:nth-child(4) {
+  background:
+    radial-gradient(circle at 88% 18%, rgba(129,140,248,.24), transparent 34%),
+    linear-gradient(135deg, rgba(30,64,175,.82), rgba(88,28,135,.38)) !important;
+}
+
+#dashboard .home-mini-command-card::after {
+  content: "" !important;
+  position: absolute !important;
+  right: -34px !important;
+  bottom: -44px !important;
+  width: 118px !important;
+  height: 118px !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+  background: rgba(255,255,255,.04) !important;
+  pointer-events: none !important;
+}
+
+#dashboard .home-mini-command-card:hover {
+  transform: translateY(-3px) !important;
+  border-color: color-mix(in srgb, var(--accent) 60%, transparent) !important;
+  box-shadow: 0 24px 50px rgba(0,0,0,.28), 0 0 28px color-mix(in srgb, var(--accent) 14%, transparent) !important;
+}
+
+#dashboard .home-mini-command-card span {
+  width: max-content !important;
+  padding: 4px 8px !important;
+  border-radius: 999px !important;
+  background: rgba(0,0,0,.28) !important;
+  color: color-mix(in srgb, var(--accent) 86%, #fff) !important;
+  font-size: 10px !important;
+  font-weight: 950 !important;
+  letter-spacing: .08em !important;
+}
+
+#dashboard .home-mini-command-card strong {
+  position: relative !important;
+  z-index: 1 !important;
+  font-size: clamp(17px, 2vw, 22px) !important;
+  line-height: 1.05 !important;
+}
+
+#dashboard .home-mini-command-card small {
+  position: relative !important;
+  z-index: 1 !important;
+  color: color-mix(in srgb, var(--text) 70%, transparent) !important;
+  line-height: 1.35 !important;
+}
+
+#dashboard .home-mini-command-card b {
+  position: absolute !important;
+  right: 14px !important;
+  bottom: 12px !important;
+  z-index: 1 !important;
+  color: var(--accent) !important;
+}
+
+@media (max-width: 980px) {
+  #dashboard .home-mini-command-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 620px) {
+  #dashboard .home-mini-command-cards {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Give the live news pulse a clean, full-width ticker lane. */
+#dashboard .hero-live-pulse {
+  width: 100% !important;
+  max-width: none !important;
+  grid-template-columns: 14px minmax(120px, 190px) minmax(0, 1fr) auto !important;
+  gap: 12px !important;
+  align-items: center !important;
+  padding: 12px 16px !important;
+  min-height: 78px !important;
+}
+
+#dashboard .hero-live-pulse .pulse-status-dot {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+}
+
+#dashboard .hero-live-pulse .pulse-ecg {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  min-width: 0 !important;
+  width: 100% !important;
+  height: 48px !important;
+  opacity: .9 !important;
+}
+
+#dashboard .hero-live-pulse .pulse-marquee {
+  grid-column: 3 !important;
+  grid-row: 1 !important;
+  min-width: 0 !important;
+  width: 100% !important;
+  padding-inline: 8px !important;
+  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent) !important;
+}
+
+#dashboard .hero-live-pulse .pulse-marquee span {
+  animation-duration: 54s !important;
+  font-size: 12px !important;
+  letter-spacing: .02em !important;
+}
+
+#dashboard .hero-live-pulse > strong {
+  grid-column: 4 !important;
+  grid-row: 1 !important;
+  align-self: center !important;
+  justify-self: end !important;
+  padding: 6px 10px !important;
+  border-radius: 999px !important;
+  background: color-mix(in srgb, var(--surface) 70%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--accent) 34%, transparent) !important;
+  white-space: nowrap !important;
+  position: relative !important;
+  z-index: 4 !important;
+}
+
+#dashboard .hero-live-pulse .pulse-mode-badge {
+  right: 14px !important;
+  top: auto !important;
+  bottom: 8px !important;
+}
+
+#dashboard .hero-live-pulse .pulse-equalizer {
+  right: 118px !important;
+  bottom: 8px !important;
+}
+
+#dashboard .hero-live-pulse .pulse-tune {
+  right: 178px !important;
+}
+
+#dashboard .hero-live-pulse .pulse-tune-two {
+  right: 146px !important;
+}
+
+@media (max-width: 760px) {
+  #dashboard .hero-live-pulse {
+    grid-template-columns: 12px minmax(0, 1fr) auto !important;
+    min-height: 104px !important;
+  }
+
+  #dashboard .hero-live-pulse .pulse-ecg {
+    grid-column: 2 / 4 !important;
+    grid-row: 1 !important;
+    height: 34px !important;
+  }
+
+  #dashboard .hero-live-pulse .pulse-marquee {
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+  }
+
+  #dashboard .hero-live-pulse > strong {
+    grid-column: 3 !important;
+  }
+}
+
+/* Final Home cleanup: the four temporary command cards are fully removed. */
+#dashboard .home-mini-command-cards,
+#dashboard .home-mini-command-card {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  max-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Richer pulse instruments for the System Active bar. */
+body.is-home-page #dashboard .pulse-data-rain {
+  position: absolute;
+  inset: 9px 118px 9px auto;
+  width: 92px;
+  opacity: .42;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+body.is-home-page #dashboard .pulse-data-rain i {
+  position: absolute;
+  top: -18px;
+  width: 2px;
+  height: 32px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, transparent, var(--accent), transparent);
+  animation: pulseDataRain 2.8s linear infinite;
+}
+
+body.is-home-page #dashboard .pulse-data-rain i:nth-child(1) { left: 10%; animation-delay: -.1s; }
+body.is-home-page #dashboard .pulse-data-rain i:nth-child(2) { left: 34%; animation-delay: -.8s; }
+body.is-home-page #dashboard .pulse-data-rain i:nth-child(3) { left: 58%; animation-delay: -1.5s; }
+body.is-home-page #dashboard .pulse-data-rain i:nth-child(4) { left: 82%; animation-delay: -2.1s; }
+
+body.is-home-page #dashboard .pulse-lightning {
+  position: absolute;
+  left: 176px;
+  top: 12px;
+  width: 46px;
+  height: 48px;
+  opacity: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, #fff7a8, #22d3ee);
+  clip-path: polygon(42% 0, 86% 0, 58% 37%, 92% 37%, 26% 100%, 44% 52%, 12% 52%);
+  filter: drop-shadow(0 0 16px color-mix(in srgb, var(--accent) 75%, transparent));
+  animation: pulseLightningFlash 4.8s ease-in-out infinite;
+}
+
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="storm"] .pulse-lightning,
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="hyper"] .pulse-lightning {
+  opacity: .82;
+  animation-duration: 1.7s;
+}
+
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="data"] .pulse-data-rain {
+  opacity: .9;
+}
+
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="data"] .pulse-data-rain i {
+  animation-duration: 1.1s;
+}
+
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="cinema"] {
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.34) 0 8px, transparent 8px 18px) 0 0/38px 100%,
+    linear-gradient(135deg, color-mix(in srgb, var(--surface) 86%, #f59e0b 14%), color-mix(in srgb, var(--card) 82%, #ec4899 18%)) !important;
+}
+
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="hyper"] .pulse-ecg polyline {
+  animation-duration: 1.55s !important;
+  stroke-width: 5px;
+}
+
+body.is-home-page #dashboard .pulse-rocket,
+body.is-home-page #dashboard .pulse-satellite,
+body.is-home-page #dashboard .pulse-wifi,
+body.is-home-page #dashboard .pulse-solar-mini,
+body.is-home-page #dashboard .pulse-music-lane {
+  position: absolute;
+  pointer-events: none;
+  z-index: 3;
+}
+
+body.is-home-page #dashboard .pulse-rocket {
+  left: -42px;
+  top: 9px;
+  font-size: 20px;
+  filter: drop-shadow(0 0 12px color-mix(in srgb, var(--accent) 70%, transparent));
+  animation: pulseRocketPass 18s linear infinite;
+}
+
+body.is-home-page #dashboard .pulse-satellite {
+  right: 18%;
+  top: 9px;
+  color: color-mix(in srgb, var(--accent) 78%, #fff);
+  font-size: 16px;
+  animation: pulseSatelliteBlink 2.4s ease-in-out infinite;
+}
+
+body.is-home-page #dashboard .pulse-wifi {
+  left: 108px;
+  top: 10px;
+  width: 42px;
+  height: 32px;
+}
+
+body.is-home-page #dashboard .pulse-wifi i {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  border: 2px solid color-mix(in srgb, var(--accent) 72%, transparent);
+  border-top-color: transparent;
+  border-left-color: transparent;
+  width: calc(12px + var(--wifi-size, 0px));
+  height: calc(12px + var(--wifi-size, 0px));
+  border-radius: 0 0 999px 0;
+  transform: translateX(-50%) rotate(45deg);
+  opacity: .28;
+  animation: pulseWifi 1.9s ease-in-out infinite;
+}
+
+body.is-home-page #dashboard .pulse-wifi i:nth-child(1) { --wifi-size: 0px; animation-delay: 0s; }
+body.is-home-page #dashboard .pulse-wifi i:nth-child(2) { --wifi-size: 12px; animation-delay: .18s; }
+body.is-home-page #dashboard .pulse-wifi i:nth-child(3) { --wifi-size: 24px; animation-delay: .36s; }
+
+body.is-home-page #dashboard .pulse-solar-mini {
+  left: 230px;
+  bottom: 11px;
+  width: 68px;
+  height: 30px;
+}
+
+body.is-home-page #dashboard .pulse-solar-mini::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  transform: translateY(-50%);
+  background: #fbbf24;
+  box-shadow: 0 0 18px #f59e0b;
+}
+
+body.is-home-page #dashboard .pulse-solar-mini i {
+  position: absolute;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--accent);
+  transform: translateY(-50%);
+  animation: pulsePlanetTravel 4.8s linear infinite;
+}
+
+body.is-home-page #dashboard .pulse-solar-mini i:nth-child(1) { left: 24px; animation-delay: 0s; }
+body.is-home-page #dashboard .pulse-solar-mini i:nth-child(2) { left: 36px; width: 7px; height: 7px; animation-delay: -.7s; }
+body.is-home-page #dashboard .pulse-solar-mini i:nth-child(3) { left: 50px; background: #38bdf8; animation-delay: -1.4s; }
+body.is-home-page #dashboard .pulse-solar-mini i:nth-child(4) { left: 62px; background: #a78bfa; animation-delay: -2.1s; }
+
+body.is-home-page #dashboard .pulse-music-lane {
+  inset: auto 150px 10px auto;
+  width: 220px;
+  height: 26px;
+  overflow: hidden;
+  opacity: .78;
+}
+
+body.is-home-page #dashboard .pulse-music-lane i {
+  position: absolute;
+  right: -24px;
+  bottom: 0;
+  color: color-mix(in srgb, var(--accent) 80%, #fff);
+  font-style: normal;
+  font-weight: 900;
+  animation: pulseMusicDrift 6.6s linear infinite;
+}
+
+body.is-home-page #dashboard .pulse-music-lane i:nth-child(2) { animation-delay: -2.2s; bottom: 7px; }
+body.is-home-page #dashboard .pulse-music-lane i:nth-child(3) { animation-delay: -4.4s; bottom: 2px; }
+
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="music"] .pulse-music-lane i,
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="hyper"] .pulse-rocket {
+  animation-duration: 12s;
+}
+
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="radar"] .pulse-wifi i,
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="sonar"] .pulse-wifi i {
+  opacity: .72;
+}
+
+@keyframes pulseRocketPass {
+  0% { transform: translateX(0) translateY(10px) rotate(18deg); opacity: 0; }
+  8% { opacity: 1; }
+  100% { transform: translateX(calc(100vw + 120px)) translateY(-16px) rotate(18deg); opacity: 0; }
+}
+
+@keyframes pulseSatelliteBlink {
+  0%, 100% { opacity: .35; transform: scale(.9) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.16) rotate(18deg); }
+}
+
+@keyframes pulseWifi {
+  0%, 100% { opacity: .18; filter: drop-shadow(0 0 0 transparent); }
+  50% { opacity: .9; filter: drop-shadow(0 0 10px var(--accent)); }
+}
+
+@keyframes pulsePlanetTravel {
+  0% { transform: translateY(-50%) translateX(-5px) scale(.75); opacity: .4; }
+  50% { transform: translateY(-50%) translateX(5px) scale(1.15); opacity: 1; }
+  100% { transform: translateY(-50%) translateX(-5px) scale(.75); opacity: .4; }
+}
+
+@keyframes pulseMusicDrift {
+  0% { transform: translateX(0) translateY(10px); opacity: 0; }
+  12% { opacity: 1; }
+  100% { transform: translateX(-230px) translateY(-8px); opacity: 0; }
+}
+
+@keyframes pulseDataRain {
+  0% { transform: translateY(-22px); opacity: 0; }
+  16% { opacity: 1; }
+  100% { transform: translateY(86px); opacity: 0; }
+}
+
+@keyframes pulseLightningFlash {
+  0%, 72%, 100% { opacity: 0; transform: scale(.86) rotate(-8deg); }
+  76% { opacity: .95; transform: scale(1.04) rotate(-5deg); }
+  80% { opacity: .2; }
+  84% { opacity: .78; }
+}
+
+/* Hero analog clock: add orbit, scan, and status treatment without changing clock logic. */
+body.is-home-page #dashboard .hero-clock-console {
+  padding: 14px;
+  border: 1px solid color-mix(in srgb, var(--accent) 34%, transparent);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 50% 24%, color-mix(in srgb, var(--primary) 18%, transparent), transparent 42%),
+    color-mix(in srgb, var(--surface) 74%, transparent);
+  box-shadow: 0 18px 44px rgba(0,0,0,.28), 0 0 34px color-mix(in srgb, var(--glow) 20%, transparent);
+}
+
+body.is-home-page #dashboard .hero-analog-clock {
+  position: relative;
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--accent) 28%, transparent),
+    inset 0 0 26px rgba(0,0,0,.28),
+    0 0 28px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+body.is-home-page #dashboard .hero-clock-orbit,
+body.is-home-page #dashboard .hero-clock-scan,
+body.is-home-page #dashboard .hero-clock-tick {
+  position: absolute;
+  pointer-events: none;
+}
+
+body.is-home-page #dashboard .hero-clock-orbit {
+  inset: 10px;
+  border: 1px dashed color-mix(in srgb, var(--accent) 38%, transparent);
+  border-radius: 999px;
+  animation: heroClockOrbit 12s linear infinite;
+}
+
+body.is-home-page #dashboard .hero-clock-orbit.orbit-two {
+  inset: 22px;
+  border-style: solid;
+  opacity: .45;
+  animation-duration: 18s;
+  animation-direction: reverse;
+}
+
+body.is-home-page #dashboard .hero-clock-scan {
+  left: 50%;
+  top: 50%;
+  width: 48%;
+  height: 1px;
+  transform-origin: left center;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 85%, transparent), transparent);
+  animation: heroClockScan 6s linear infinite;
+}
+
+body.is-home-page #dashboard .hero-clock-tick {
+  left: 50%;
+  top: 50%;
+  width: 2px;
+  height: 8px;
+  margin-left: -1px;
+  margin-top: -44%;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--text) 58%, transparent);
+  transform-origin: 50% 44px;
+}
+
+body.is-home-page #dashboard .hero-clock-tick.tick-1 { transform: rotate(30deg); }
+body.is-home-page #dashboard .hero-clock-tick.tick-2 { transform: rotate(60deg); }
+body.is-home-page #dashboard .hero-clock-tick.tick-3 { transform: rotate(120deg); }
+body.is-home-page #dashboard .hero-clock-tick.tick-4 { transform: rotate(150deg); }
+body.is-home-page #dashboard .hero-clock-tick.tick-5 { transform: rotate(210deg); }
+body.is-home-page #dashboard .hero-clock-tick.tick-6 { transform: rotate(240deg); }
+body.is-home-page #dashboard .hero-clock-tick.tick-7 { transform: rotate(300deg); }
+body.is-home-page #dashboard .hero-clock-tick.tick-8 { transform: rotate(330deg); }
+
+body.is-home-page #dashboard .hero-clock-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  max-width: 100%;
+  margin: 6px auto 0;
+  padding: 4px 9px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+  color: color-mix(in srgb, var(--text) 70%, transparent);
+  background: color-mix(in srgb, var(--card) 58%, transparent);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+body.is-home-page #dashboard .hero-clock-sun {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, #fff7ad, #f59e0b 62%, #f97316);
+  box-shadow: 0 0 22px #f59e0b, 0 0 44px color-mix(in srgb, var(--accent) 28%, transparent);
+  pointer-events: none;
+  z-index: 4;
+}
+
+body.is-home-page #dashboard .hero-clock-planet {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 5;
+  transform-origin: 0 0;
+}
+
+body.is-home-page #dashboard .hero-clock-planet::before {
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: -4px;
+  width: 8px;
+  height: 8px;
+  border-radius: inherit;
+  background: currentColor;
+  box-shadow: 0 0 12px currentColor;
+}
+
+body.is-home-page #dashboard .hero-clock-planet.planet-mercury {
+  color: #f8fafc;
+  animation: heroPlanetOrbit 8s linear infinite;
+}
+
+body.is-home-page #dashboard .hero-clock-planet.planet-mercury::before {
+  transform: translateX(24px);
+  width: 5px;
+  height: 5px;
+}
+
+body.is-home-page #dashboard .hero-clock-planet.planet-venus {
+  color: #fbbf24;
+  animation: heroPlanetOrbit 14s linear infinite reverse;
+}
+
+body.is-home-page #dashboard .hero-clock-planet.planet-venus::before {
+  transform: translateX(34px);
+}
+
+body.is-home-page #dashboard .hero-clock-planet.planet-earth {
+  color: #38bdf8;
+  animation: heroPlanetOrbit 22s linear infinite;
+}
+
+body.is-home-page #dashboard .hero-clock-planet.planet-earth::before {
+  transform: translateX(44px);
+  width: 9px;
+  height: 9px;
+}
+
+body.is-home-page #dashboard .hero-clock-rocket {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 7;
+  font-size: 12px;
+  pointer-events: none;
+  transform-origin: 0 0;
+  animation: heroRocketOrbit 60s linear infinite;
+  filter: drop-shadow(0 0 10px color-mix(in srgb, var(--accent) 70%, transparent));
+}
+
+@keyframes heroPlanetOrbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes heroRocketOrbit {
+  from { transform: rotate(var(--hero-minute-angle, 0deg)) translateX(52px) rotate(42deg); }
+  to { transform: rotate(calc(var(--hero-minute-angle, 0deg) + 360deg)) translateX(52px) rotate(42deg); }
+}
+
+@keyframes heroClockOrbit {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes heroClockScan {
+  to { transform: rotate(360deg); }
+}
+
+/* Customize Center organization: stronger grouping, cleaner tiles, sticky header. */
+.customize-dashboard-panel {
+  width: min(1080px, calc(100vw - 24px)) !important;
+  max-height: min(88vh, 920px) !important;
+  overflow: auto !important;
+  border-radius: 26px !important;
+  border: 1px solid color-mix(in srgb, var(--accent) 34%, transparent) !important;
+  background:
+    radial-gradient(circle at 18% 8%, color-mix(in srgb, var(--primary) 18%, transparent), transparent 30%),
+    radial-gradient(circle at 88% 16%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 34%),
+    color-mix(in srgb, var(--surface) 92%, #020617 8%) !important;
+  box-shadow: 0 28px 90px rgba(0,0,0,.46), inset 0 1px 0 rgba(255,255,255,.06) !important;
+}
+
+.customize-dashboard-panel .page-appearance-head {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 30 !important;
+  margin: -2px -2px 14px !important;
+  padding: 16px !important;
+  border-radius: 22px !important;
+  border: 1px solid color-mix(in srgb, var(--border) 80%, transparent) !important;
+  background: color-mix(in srgb, var(--surface) 88%, transparent) !important;
+  backdrop-filter: blur(18px) !important;
+}
+
+.customize-dashboard-panel .customize-mode-switcher,
+.customize-dashboard-panel .customize-theme-grid,
+.customize-dashboard-panel .customize-form-grid,
+.customize-dashboard-panel .customize-control-grid,
+.customize-dashboard-panel .reset-command-grid,
+.customize-dashboard-panel .ai-background-gallery {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)) !important;
+  gap: 10px !important;
+}
+
+.customize-dashboard-panel .customize-mode-switcher {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+
+.customize-dashboard-panel .customize-section-card {
+  margin: 12px 0 !important;
+  padding: 14px !important;
+  border-radius: 20px !important;
+  border: 1px solid color-mix(in srgb, var(--border) 82%, transparent) !important;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--card) 86%, transparent), color-mix(in srgb, var(--surface) 78%, var(--primary) 6%)) !important;
+  box-shadow: 0 16px 38px rgba(0,0,0,.22) !important;
+}
+
+.customize-dashboard-panel .customize-theme-tile,
+.customize-dashboard-panel .customize-setting-tile,
+.customize-dashboard-panel .ai-bg-tile,
+.customize-dashboard-panel .reset-command-grid button,
+.customize-dashboard-panel .customize-mode-switcher button {
+  min-height: 74px !important;
+  border-radius: 16px !important;
+  border: 1px solid color-mix(in srgb, var(--accent) 24%, var(--border)) !important;
+  background:
+    radial-gradient(circle at 88% 16%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 30%),
+    color-mix(in srgb, var(--card) 84%, transparent) !important;
+  color: var(--text) !important;
+  box-shadow: 0 12px 28px rgba(0,0,0,.16) !important;
+}
+
+.customize-dashboard-panel .customize-theme-tile:hover,
+.customize-dashboard-panel .customize-setting-tile:hover,
+.customize-dashboard-panel .ai-bg-tile:hover,
+.customize-dashboard-panel button:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--border)) !important;
+}
+
+.customize-dashboard-panel input[type="color"] {
+  width: 100% !important;
+  height: 38px !important;
+  border-radius: 12px !important;
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--border)) !important;
+  background: var(--surface) !important;
+}
+
+.customize-dashboard-panel .page-preset-heading {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 10px !important;
+  padding: 10px 12px !important;
+  border-radius: 16px !important;
+  background: color-mix(in srgb, var(--card) 74%, transparent) !important;
+}
+
+.customize-dashboard-panel #customizeScrollTop,
+.customize-dashboard-panel .go-top-button,
+.customize-dashboard-panel [data-scroll-top] {
+  position: sticky !important;
+  bottom: 12px !important;
+  margin-left: auto !important;
+  width: max-content !important;
+  min-width: 42px !important;
+  padding: 9px 12px !important;
+  border-radius: 999px !important;
+  z-index: 40 !important;
+}
+
+@media (max-width: 720px) {
+  .customize-dashboard-panel .customize-mode-switcher {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Focused 2026-06 header, hero, and Essentials refinements. */
+.app-header .header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.app-header .page-chooser,
+.app-header .header-essentials-btn {
+  min-height: 42px;
+  padding: 8px 14px;
+  border-radius: 14px;
+}
+
+.app-header .save-control-cluster {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px;
+  border: 1px solid color-mix(in srgb, var(--border, #334155) 75%, transparent);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--surface, #0f172a) 72%, transparent);
+}
+
+.app-header .save-control-cluster .header-icon-btn,
+.app-header .save-control-cluster .ghost-btn,
+.app-header .dashboard-customize-control,
+.app-header .header-settings-button,
+.app-header .notifications-button {
+  min-width: 38px;
+  min-height: 38px;
+  padding: 6px 9px;
+  border-radius: 12px;
+  font-size: .76rem;
+}
+
+.app-header .dashboard-customize-control strong {
+  display: none;
+}
+
+.app-header .dashboard-customize-control {
+  width: 42px;
+  height: 42px;
+  justify-content: center;
+  border-color: color-mix(in srgb, var(--accent, #a78bfa) 56%, transparent);
+}
+
+.app-header .header-essentials-btn {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255,255,255,.18), transparent 22%),
+    linear-gradient(135deg, color-mix(in srgb, var(--accent, #a78bfa) 34%, var(--surface, #0f172a)), color-mix(in srgb, var(--primary, #38bdf8) 26%, var(--surface-2, #111827)));
+}
+
+body.is-home-page #dashboard .home-command-hero {
+  grid-template-columns: minmax(0, 1fr) minmax(230px, 340px);
+  align-items: center;
+}
+
+body.is-home-page #dashboard .hero-clock-console {
+  justify-self: end;
+  width: min(100%, 330px);
+  padding: 16px;
+  display: grid;
+  gap: 10px;
+}
+
+body.is-home-page #dashboard .hero-analog-clock {
+  width: clamp(205px, 20vw, 285px) !important;
+  height: clamp(205px, 20vw, 285px) !important;
+  margin: 0 auto 10px;
+  border-radius: 999px;
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--primary, #38bdf8) 35%, transparent),
+    inset 0 0 42px rgba(0,0,0,.34),
+    0 0 44px color-mix(in srgb, var(--accent, #a78bfa) 23%, transparent) !important;
+}
+
+body.is-home-page #dashboard .home-active-date {
+  align-self: center;
+  justify-self: stretch;
+  min-width: 0;
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 16px;
+  border: 1px solid color-mix(in srgb, var(--primary, #38bdf8) 28%, transparent);
+  background: color-mix(in srgb, var(--surface, #0f172a) 72%, transparent);
+}
+
+body.is-home-page #dashboard .hero-live-pulse {
+  min-height: 118px;
+  padding-bottom: 40px;
+}
+
+.hero-fx-system-button {
+  position: relative;
+  z-index: 6;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  width: fit-content;
+  min-height: 36px;
+  margin-top: 10px;
+  padding: 6px 10px;
+  border: 1px solid color-mix(in srgb, var(--primary, #38bdf8) 45%, transparent);
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 18% 20%, color-mix(in srgb, var(--success, #22c55e) 30%, transparent), transparent 28%),
+    linear-gradient(135deg, color-mix(in srgb, var(--surface, #0f172a) 82%, transparent), color-mix(in srgb, var(--primary, #38bdf8) 15%, var(--surface-2, #111827)));
+  color: var(--text, #f8fafc);
+  box-shadow: 0 0 22px color-mix(in srgb, var(--primary, #38bdf8) 18%, transparent);
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  pointer-events: auto;
+}
+
+.hero-fx-system-button:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent, #a78bfa);
+  box-shadow: 0 0 30px color-mix(in srgb, var(--accent, #a78bfa) 24%, transparent);
+}
+
+.hero-fx-system-button #heroPulseStatus {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 4px 8px;
+  border: 1px solid color-mix(in srgb, var(--success, #22c55e) 42%, transparent);
+  border-radius: 999px;
+  background: rgba(3, 15, 23, .55);
+  color: color-mix(in srgb, var(--success, #22c55e) 82%, #fff);
+  font-size: .68rem;
+  white-space: nowrap;
+}
+
+.hero-fx-system-button > span {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--primary, #38bdf8), var(--accent, #a78bfa));
+  color: #04111f;
+  font-size: .72rem;
+  font-weight: 900;
+}
+
+.hero-fx-system-button b {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: max-width .25s ease, opacity .25s ease;
+}
+
+.hero-fx-system-button.is-showing-fx-name b,
+.hero-fx-system-button:hover b {
+  max-width: 170px;
+  opacity: 1;
+}
+
+.pulse-float {
+  position: absolute;
+  z-index: 2;
+  font-size: 1.1rem;
+  opacity: 0;
+  text-shadow: 0 0 14px currentColor;
+  animation: pulseFloatAcross 12s linear infinite;
+  pointer-events: none;
+}
+
+.pulse-heart-one { color: #fb7185; top: 18%; left: -8%; animation-delay: .3s; }
+.pulse-heart-two { color: #f9a8d4; top: 62%; left: -10%; animation-delay: 4.3s; animation-duration: 14s; }
+.pulse-flower-one { color: #fde68a; top: 36%; left: -7%; animation-delay: 2.1s; animation-duration: 16s; }
+.pulse-flower-two { color: #86efac; top: 76%; left: -9%; animation-delay: 7.2s; animation-duration: 15s; }
+.pulse-flower-three { color: #f0abfc; top: 48%; left: -12%; animation-delay: 9.1s; animation-duration: 17s; }
+.pulse-star-one { color: #fef3c7; top: 26%; left: -14%; animation-delay: 1.4s; animation-duration: 13s; }
+.pulse-star-two { color: #bae6fd; top: 82%; left: -11%; animation-delay: 6.4s; animation-duration: 18s; }
+.pulse-moon-one { color: #ddd6fe; top: 12%; left: -13%; animation-delay: 11.2s; animation-duration: 19s; }
+.pulse-leaf-one { color: #bbf7d0; top: 68%; left: -15%; animation-delay: 3.5s; animation-duration: 16.5s; }
+.pulse-diamond-one { color: #67e8f9; top: 42%; left: -10%; animation-delay: 12.8s; animation-duration: 14.5s; }
+
+@keyframes pulseFloatAcross {
+  0% { transform: translateX(0) translateY(18px) scale(.8) rotate(0deg); opacity: 0; }
+  10% { opacity: .9; }
+  45% { transform: translateX(48vw) translateY(-12px) scale(1.1) rotate(18deg); opacity: .75; }
+  80% { opacity: .85; }
+  100% { transform: translateX(105vw) translateY(20px) scale(.9) rotate(42deg); opacity: 0; }
+}
+
+.hero-fx-wifi-grid {
+  background:
+    radial-gradient(circle at 75% 30%, rgba(34, 211, 238, .34), transparent 25%),
+    repeating-radial-gradient(circle at 75% 30%, rgba(56,189,248,.22) 0 2px, transparent 3px 26px),
+    linear-gradient(135deg, #031525, #073b4c) !important;
+}
+
+.hero-fx-internet-core {
+  background:
+    linear-gradient(90deg, rgba(56,189,248,.18) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(99,102,241,.14) 1px, transparent 1px),
+    radial-gradient(circle at 50% 48%, rgba(34,197,94,.34), transparent 26%),
+    linear-gradient(135deg, #020617, #0f172a) !important;
+  background-size: 28px 28px, 28px 28px, auto, auto;
+}
+
+.hero-fx-hacker-code {
+  background:
+    repeating-linear-gradient(90deg, rgba(34,197,94,.16) 0 2px, transparent 2px 18px),
+    radial-gradient(circle at 18% 60%, rgba(34,197,94,.32), transparent 28%),
+    linear-gradient(135deg, #011307, #052e16) !important;
+}
+
+.hero-fx-bangladesh-flag {
+  background:
+    radial-gradient(circle at 46% 48%, rgba(244, 30, 65, .88) 0 58px, transparent 60px),
+    linear-gradient(135deg, #006a4e, #003f2d) !important;
+}
+
+.hero-fx-usa-flag {
+  background:
+    linear-gradient(135deg, rgba(37,99,235,.7), transparent 32%),
+    repeating-linear-gradient(0deg, rgba(239,68,68,.42) 0 14px, rgba(255,255,255,.12) 14px 28px),
+    linear-gradient(135deg, #0f172a, #1e3a8a) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-bangladesh-flag {
+  border-color: rgba(244, 30, 65, .52) !important;
+  box-shadow: 0 30px 90px rgba(0, 106, 78, .22), inset 0 1px 0 rgba(255,255,255,.08) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-bangladesh-flag .hero-live-pulse {
+  background:
+    radial-gradient(circle at 50% 50%, #f42a41 0 74px, rgba(244, 30, 65, .84) 75px 92px, transparent 94px),
+    radial-gradient(circle at 22% 20%, rgba(255,255,255,.08), transparent 24%),
+    linear-gradient(115deg, rgba(255,255,255,.06), transparent 34%, rgba(255,255,255,.04) 66%, transparent),
+    linear-gradient(135deg, #006a4e 0%, #00533d 48%, #003f2d 100%) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-bangladesh-flag .hero-live-pulse::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  opacity: .34 !important;
+  background:
+    linear-gradient(100deg, transparent 0 38%, rgba(255,255,255,.12) 45%, transparent 54%),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.035) 0 1px, transparent 1px 42px) !important;
+  animation: bdFlagWave 10s ease-in-out infinite !important;
+  pointer-events: none !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-usa-flag {
+  border-color: rgba(59, 130, 246, .58) !important;
+  box-shadow: 0 30px 90px rgba(37, 99, 235, .22), inset 0 1px 0 rgba(255,255,255,.08) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-usa-flag .hero-live-pulse {
+  background:
+    linear-gradient(90deg, #1d4ed8 0 34%, transparent 34%) 0 0 / 100% 54% no-repeat,
+    repeating-linear-gradient(180deg, #b91c1c 0 7.69%, #f8fafc 7.69% 15.38%) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-usa-flag .hero-live-pulse::after {
+  content: "★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★" !important;
+  position: absolute !important;
+  top: 8% !important;
+  left: 4% !important;
+  width: min(300px, 29%) !important;
+  height: 40% !important;
+  display: block !important;
+  overflow: hidden !important;
+  color: rgba(255,255,255,.94) !important;
+  font-size: clamp(.54rem, 1vw, .92rem) !important;
+  line-height: 1.35 !important;
+  letter-spacing: .18em !important;
+  word-spacing: .18em !important;
+  opacity: .92 !important;
+  background: transparent !important;
+  text-shadow: 0 0 10px rgba(255,255,255,.42) !important;
+  animation: usaStarsGlow 5.5s ease-in-out infinite !important;
+  pointer-events: none !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-usa-flag .hero-live-pulse::before {
+  opacity: .28 !important;
+  background:
+    linear-gradient(105deg, transparent 0 38%, rgba(255,255,255,.18) 46%, transparent 58%),
+    radial-gradient(circle at 72% 34%, rgba(59,130,246,.18), transparent 30%) !important;
+  animation: usaFlagWave 9s ease-in-out infinite !important;
+}
+
+@keyframes bdFlagWave {
+  0%, 100% { transform: translateX(-5%) skewX(-5deg); }
+  50% { transform: translateX(5%) skewX(5deg); }
+}
+
+@keyframes usaFlagWave {
+  0%, 100% { transform: translateX(-4%) skewX(-4deg); }
+  50% { transform: translateX(4%) skewX(4deg); }
+}
+
+@keyframes usaStarsGlow {
+  0%, 100% { filter: drop-shadow(0 0 4px rgba(255,255,255,.28)); opacity: .82; }
+  50% { filter: drop-shadow(0 0 10px rgba(255,255,255,.62)); opacity: 1; }
+}
+
+.hero-fx-flower-field {
+  background:
+    radial-gradient(circle at 18% 72%, rgba(244,114,182,.52) 0 14px, transparent 16px),
+    radial-gradient(circle at 32% 62%, rgba(250,204,21,.48) 0 12px, transparent 14px),
+    radial-gradient(circle at 72% 70%, rgba(45,212,191,.45) 0 13px, transparent 15px),
+    linear-gradient(135deg, #052e16, #123524 48%, #2d1b69) !important;
+}
+
+.hero-fx-neon-garden {
+  background:
+    radial-gradient(circle at 20% 84%, rgba(52,211,153,.42), transparent 22%),
+    radial-gradient(circle at 74% 20%, rgba(217,70,239,.38), transparent 28%),
+    linear-gradient(135deg, #02111f, #102a43) !important;
+}
+
+.hero-fx-digital-mosque {
+  background:
+    radial-gradient(circle at 76% 22%, rgba(250,204,21,.34), transparent 26%),
+    radial-gradient(circle at 20% 84%, rgba(16,185,129,.34), transparent 28%),
+    linear-gradient(135deg, #022c22, #0f172a) !important;
+}
+
+.hero-fx-city-network {
+  background:
+    linear-gradient(180deg, transparent 0 54%, rgba(14,165,233,.24) 55% 57%, transparent 58%),
+    repeating-linear-gradient(90deg, rgba(56,189,248,.22) 0 2px, transparent 2px 46px),
+    linear-gradient(135deg, #020617, #0c4a6e) !important;
+}
+
+body.is-home-page #dashboard .hero-clock-stack {
+  position: relative !important;
+  z-index: 10 !important;
+  display: grid !important;
+  gap: 10px !important;
+  justify-self: end !important;
+  width: min(100%, 300px) !important;
+}
+
+body.is-home-page #dashboard .hero-clock-stack .home-active-date {
+  position: relative !important;
+  z-index: 11 !important;
+  justify-self: stretch !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+body.is-home-page #dashboard .hero-clock-stack .hero-clock-console {
+  width: 100% !important;
+  padding: 12px !important;
+}
+
+body.is-home-page #dashboard .hero-clock-stack .hero-analog-clock {
+  width: clamp(150px, 14vw, 205px) !important;
+  height: clamp(150px, 14vw, 205px) !important;
+}
+
+body.is-home-page #dashboard .hero-fx-system-button {
+  min-height: 28px !important;
+  gap: 5px !important;
+  padding: 4px 7px !important;
+  font-size: .66rem !important;
+}
+
+body.is-home-page #dashboard .hero-fx-system-button #heroPulseStatus {
+  min-height: 20px !important;
+  padding: 3px 6px !important;
+  font-size: .58rem !important;
+}
+
+body.is-home-page #dashboard .hero-fx-system-button > span {
+  width: 20px !important;
+  height: 20px !important;
+  font-size: .58rem !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-space-nebula,
+body.is-home-page #dashboard .home-command-hero[data-hero-fx="space-nebula"] {
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.essentials-mini-card {
+  cursor: pointer;
+}
+
+.essentials-mini-card .secondary-button,
+.essentials-feature-card .secondary-button,
+.essentials-action,
+.essentials-news-chip {
+  border-radius: 10px;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--primary, #38bdf8) 18%, transparent), color-mix(in srgb, var(--accent, #a78bfa) 16%, transparent)),
+    color-mix(in srgb, var(--surface-2, #111827) 86%, transparent);
+}
+
+.essentials-card-meta,
+.essentials-workout-list {
+  display: grid;
+  gap: 7px;
+  margin: 12px 0;
+}
+
+.essentials-card-meta span,
+.essentials-workout-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 10px;
+  background: rgba(2, 6, 23, .25);
+  color: var(--muted, #94a3b8);
+}
+
+.essentials-workout-list {
+  padding: 0;
+  list-style: none;
+}
+
+.essentials-workout-list li {
+  align-items: start;
+  flex-direction: column;
+}
+
+.essentials-workout-list strong {
+  color: var(--text, #f8fafc);
+}
+
+.essentials-workout-list span {
+  color: var(--muted, #94a3b8);
+}
+
+@media (max-width: 980px) {
+  body.is-home-page #dashboard .home-command-hero {
+    grid-template-columns: 1fr;
+  }
+
+  body.is-home-page #dashboard .hero-clock-console,
+  body.is-home-page #dashboard .home-active-date {
+    justify-self: stretch;
+  }
+}
+
+@media (max-width: 760px) {
+  .app-header .header-essentials-btn strong,
+  .app-header .save-control-cluster .ghost-btn {
+    display: none;
+  }
+
+  .app-header .save-control-cluster {
+    padding: 3px;
+  }
+}
+
+/* Final request: keep Customize Center as a compact Home-side subpanel, not a full page. */
+#pageAppearancePanel.customize-dashboard-panel {
+  position: fixed !important;
+  top: 82px !important;
+  right: 14px !important;
+  left: auto !important;
+  bottom: 14px !important;
+  width: min(440px, calc(100vw - 22px)) !important;
+  max-width: min(440px, calc(100vw - 22px)) !important;
+  height: auto !important;
+  max-height: calc(100vh - 96px) !important;
+  padding: 10px !important;
+  overflow: auto !important;
+  border-radius: 18px !important;
+  z-index: 90 !important;
+  transform: none !important;
+}
+
+#pageAppearancePanel.customize-dashboard-panel[hidden] {
+  display: none !important;
+}
+
+#pageAppearancePanel.customize-dashboard-panel .page-appearance-head {
+  min-height: 52px !important;
+  padding: 10px 11px !important;
+  margin: 0 0 10px !important;
+  border-radius: 14px !important;
+}
+
+#pageAppearancePanel.customize-dashboard-panel .page-appearance-head > div:first-child {
+  min-width: 0 !important;
+}
+
+#pageAppearancePanel.customize-dashboard-panel .page-appearance-head small,
+#pageAppearancePanel.customize-dashboard-panel .page-appearance-head span {
+  font-size: .68rem !important;
+  line-height: 1.1 !important;
+}
+
+#pageAppearancePanel.customize-dashboard-panel .page-appearance-head strong {
+  font-size: 1rem !important;
+}
+
+#pageAppearancePanel.customize-dashboard-panel .customize-mode-switcher {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+}
+
+#pageAppearancePanel.customize-dashboard-panel .customize-section-card {
+  margin: 8px 0 !important;
+  padding: 10px !important;
+  border-radius: 14px !important;
+}
+
+#pageAppearancePanel.customize-dashboard-panel .customize-theme-grid,
+#pageAppearancePanel.customize-dashboard-panel .customize-form-grid,
+#pageAppearancePanel.customize-dashboard-panel .customize-control-grid,
+#pageAppearancePanel.customize-dashboard-panel .reset-command-grid,
+#pageAppearancePanel.customize-dashboard-panel .ai-background-gallery,
+#pageAppearancePanel.customize-dashboard-panel .page-theme-presets {
+  grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)) !important;
+  gap: 7px !important;
+}
+
+#pageAppearancePanel.customize-dashboard-panel .customize-theme-tile,
+#pageAppearancePanel.customize-dashboard-panel .customize-setting-tile,
+#pageAppearancePanel.customize-dashboard-panel .ai-bg-tile,
+#pageAppearancePanel.customize-dashboard-panel label,
+#pageAppearancePanel.customize-dashboard-panel .accent-chip {
+  min-height: 56px !important;
+  padding: 8px !important;
+  border-radius: 12px !important;
+}
+
+#pageAppearancePanel.customize-dashboard-panel button,
+#pageAppearancePanel.customize-dashboard-panel select,
+#pageAppearancePanel.customize-dashboard-panel input {
+  min-height: 30px !important;
+  border-radius: 10px !important;
+  font-size: .74rem !important;
+}
+
+#pageAppearancePanel.customize-dashboard-panel #customizeScrollTop {
+  position: sticky !important;
+  right: 0 !important;
+  bottom: 10px !important;
+  float: right !important;
+  margin: 10px 0 0 auto !important;
+  min-width: 0 !important;
+  width: auto !important;
+  padding: 7px 10px !important;
+  border-radius: 999px !important;
+  background: linear-gradient(135deg, var(--primary), var(--accent)) !important;
+  color: #fff !important;
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--accent) 25%, transparent) !important;
+}
+
+@media (max-width: 560px) {
+  #pageAppearancePanel.customize-dashboard-panel {
+    top: 76px !important;
+    right: 8px !important;
+    bottom: 8px !important;
+    width: calc(100vw - 16px) !important;
+    max-width: calc(100vw - 16px) !important;
+  }
+}
+
+/* Slower, full-width readable pulse message. */
+#dashboard .hero-live-pulse {
+  grid-template-columns: 12px minmax(84px, 132px) minmax(0, 1fr) auto !important;
+}
+
+#dashboard .hero-live-pulse .pulse-marquee {
+  width: 100% !important;
+  padding-inline: 12px !important;
+}
+
+#dashboard .hero-live-pulse .pulse-marquee span,
+.pulse-marquee span {
+  animation-duration: 96s !important;
+  animation-timing-function: linear !important;
+}
+
+#dashboard .hero-live-pulse .pulse-ecg {
+  max-width: 132px !important;
+}
+
+@media (max-width: 760px) {
+  #dashboard .hero-live-pulse .pulse-marquee span,
+  .pulse-marquee span {
+    animation-duration: 112s !important;
+  }
+}
+
+/* More colorful Home command widgets. */
+#dashboard .home-command-cards {
+  gap: 12px !important;
+  align-items: stretch !important;
+}
+
+#dashboard .home-command-card {
+  position: relative !important;
+  overflow: hidden !important;
+  border: 1px solid color-mix(in srgb, var(--tile-accent, var(--accent)) 42%, transparent) !important;
+  box-shadow: 0 20px 50px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.06) !important;
+  transition: transform .22s ease, filter .22s ease, box-shadow .22s ease !important;
+}
+
+#dashboard .home-command-card::after {
+  content: "" !important;
+  position: absolute !important;
+  right: -44px !important;
+  bottom: -54px !important;
+  width: 150px !important;
+  height: 150px !important;
+  border-radius: 999px !important;
+  background: radial-gradient(circle, color-mix(in srgb, var(--tile-accent, var(--accent)) 22%, transparent), transparent 62%) !important;
+  pointer-events: none !important;
+}
+
+#dashboard .home-command-card:hover {
+  transform: translateY(-3px) !important;
+  filter: saturate(1.12) brightness(1.05) !important;
+}
+
+#dashboard .prayer-command-card { --tile-accent:#22d3ee; background:linear-gradient(135deg,#0b4a59,#17366d) !important; }
+#dashboard .clock-command-card { --tile-accent:#a78bfa; background:linear-gradient(135deg,#21124f,#0d3f52) !important; }
+#dashboard .calendar-command-card { --tile-accent:#34d399; background:linear-gradient(135deg,#0d5b54,#1e3a8a) !important; }
+#dashboard .focus-command-card { --tile-accent:#f43f5e; background:linear-gradient(135deg,#7f1231,#3b1a74) !important; }
+#dashboard .wisdom-command-card { --tile-accent:#fbbf24; background:linear-gradient(135deg,#4d3209,#0b4a3a) !important; }
+#dashboard .discipline-command-card { --tile-accent:#60a5fa; background:linear-gradient(135deg,#172554,#07575b) !important; }
+
+/* Solar-system clock modal and clickable hero clock. */
+#dashboard .hero-analog-clock {
+  cursor: default !important;
+}
+
+#dashboard .hero-analog-clock:focus-visible {
+  outline: 2px solid var(--accent) !important;
+  outline-offset: 4px !important;
+}
+
+/* Futuristic time/season solar details inside the Home hero analog clock. */
+body.is-home-page #dashboard .hero-analog-clock {
+  background:
+    radial-gradient(circle at 50% 50%, color-mix(in srgb, #fbbf24 30%, transparent) 0 6px, transparent 7px),
+    radial-gradient(circle at 18% 22%, rgba(255,255,255,.85) 0 1px, transparent 2px),
+    radial-gradient(circle at 76% 18%, rgba(255,255,255,.72) 0 1px, transparent 2px),
+    radial-gradient(circle at 82% 76%, rgba(255,255,255,.58) 0 1px, transparent 2px),
+    radial-gradient(circle at 27% 77%, rgba(255,255,255,.62) 0 1px, transparent 2px),
+    radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--primary) 13%, transparent), transparent 58%),
+    color-mix(in srgb, var(--surface) 88%, #020617) !important;
+}
+
+body.is-home-page #dashboard .hero-clock-stars,
+body.is-home-page #dashboard .hero-clock-moon,
+body.is-home-page #dashboard .hero-clock-planet.planet-season {
+  position: absolute !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+}
+
+body.is-home-page #dashboard .hero-clock-stars {
+  inset: 5px !important;
+  border-radius: 999px !important;
+  background:
+    radial-gradient(circle at 16% 32%, rgba(255,255,255,.9) 0 1px, transparent 2px),
+    radial-gradient(circle at 37% 14%, rgba(255,255,255,.65) 0 1px, transparent 2px),
+    radial-gradient(circle at 64% 28%, rgba(255,255,255,.78) 0 1px, transparent 2px),
+    radial-gradient(circle at 78% 58%, rgba(255,255,255,.54) 0 1px, transparent 2px),
+    radial-gradient(circle at 31% 71%, rgba(255,255,255,.7) 0 1px, transparent 2px) !important;
+  opacity: .68 !important;
+  animation: heroStarTwinkle 3.8s ease-in-out infinite !important;
+}
+
+body.is-home-page #dashboard .hero-clock-sun {
+  box-shadow: 0 0 22px color-mix(in srgb, #fbbf24 72%, transparent), 0 0 42px color-mix(in srgb, var(--accent) 28%, transparent) !important;
+}
+
+body.is-home-page #dashboard .hero-clock-moon {
+  right: 22px !important;
+  top: 24px !important;
+  width: 16px !important;
+  height: 16px !important;
+  border-radius: 999px !important;
+  background: color-mix(in srgb, #e5e7eb 82%, var(--accent)) !important;
+  box-shadow: inset -5px 0 0 color-mix(in srgb, var(--surface) 88%, transparent), 0 0 16px color-mix(in srgb, #e0f2fe 58%, transparent) !important;
+  opacity: .42 !important;
+}
+
+body.is-home-page #dashboard .hero-clock-planet.planet-season {
+  left: 50% !important;
+  top: 50% !important;
+  width: 9px !important;
+  height: 9px !important;
+  border-radius: 999px !important;
+  background: #38bdf8 !important;
+  transform: rotate(var(--hero-month-angle, 0deg)) translateX(44px) rotate(calc(-1 * var(--hero-month-angle, 0deg))) !important;
+  box-shadow: 0 0 14px color-mix(in srgb, var(--accent) 75%, transparent) !important;
+}
+
+body.is-home-page #dashboard .hero-analog-clock[data-season="spring"] .planet-season {
+  background: #34d399 !important;
+}
+
+body.is-home-page #dashboard .hero-analog-clock[data-season="summer"] .planet-season {
+  background: #fbbf24 !important;
+}
+
+body.is-home-page #dashboard .hero-analog-clock[data-season="fall"] .planet-season {
+  background: #fb923c !important;
+}
+
+body.is-home-page #dashboard .hero-analog-clock[data-season="winter"] .planet-season {
+  background: #93c5fd !important;
+}
+
+body.is-home-page #dashboard .hero-analog-clock[data-time-phase="morning"] {
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, #fbbf24 30%, transparent), 0 0 30px color-mix(in srgb, #fbbf24 16%, transparent) !important;
+}
+
+body.is-home-page #dashboard .hero-analog-clock[data-time-phase="day"] {
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, #38bdf8 30%, transparent), 0 0 30px color-mix(in srgb, #38bdf8 16%, transparent) !important;
+}
+
+body.is-home-page #dashboard .hero-analog-clock[data-time-phase="evening"] {
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, #fb7185 28%, transparent), 0 0 32px color-mix(in srgb, #fb7185 16%, transparent) !important;
+}
+
+body.is-home-page #dashboard .hero-analog-clock[data-time-phase="night"] .hero-clock-moon {
+  opacity: .96 !important;
+}
+
+body.is-home-page #dashboard .hero-analog-clock[data-time-phase="night"] .hero-clock-stars {
+  opacity: .98 !important;
+}
+
+body.is-home-page #dashboard .hero-clock-rocket {
+  animation-duration: 22s !important;
+  filter: drop-shadow(0 0 10px color-mix(in srgb, var(--accent) 72%, transparent)) !important;
+}
+
+@keyframes heroStarTwinkle {
+  0%, 100% { opacity: .46; filter: drop-shadow(0 0 0 transparent); }
+  50% { opacity: 1; filter: drop-shadow(0 0 8px color-mix(in srgb, var(--accent) 48%, transparent)); }
+}
+
+.analog-clock-view .clock-center-head {
+  align-items: center !important;
+  padding: 14px !important;
+  border-radius: 18px !important;
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent) !important;
+  background: color-mix(in srgb, var(--card) 74%, transparent) !important;
+}
+
+#largeAnalogClock.analog-clock {
+  width: min(430px, 82vw) !important;
+  height: min(430px, 82vw) !important;
+  margin: 0 auto !important;
+  border-radius: 999px !important;
+  overflow: hidden !important;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(251,191,36,.18), transparent 7%),
+    radial-gradient(circle at 28% 26%, rgba(255,255,255,.65) 0 1px, transparent 2px),
+    radial-gradient(circle at 74% 18%, rgba(255,255,255,.55) 0 1px, transparent 2px),
+    radial-gradient(circle at 81% 72%, rgba(255,255,255,.42) 0 1px, transparent 2px),
+    radial-gradient(circle at 18% 68%, rgba(255,255,255,.5) 0 1px, transparent 2px),
+    linear-gradient(135deg, #020617, #081a3d 48%, #140b2e) !important;
+  border: 1px solid color-mix(in srgb, var(--accent) 42%, transparent) !important;
+  box-shadow: 0 0 60px rgba(56,189,248,.16), inset 0 0 70px rgba(0,0,0,.55) !important;
+}
+
+#largeAnalogClock .solar-system-starfield {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 14% 22%, #fff 0 1px, transparent 2px),
+    radial-gradient(circle at 34% 78%, #fff 0 1px, transparent 2px),
+    radial-gradient(circle at 72% 34%, #fff 0 1px, transparent 2px),
+    radial-gradient(circle at 88% 66%, #fff 0 1px, transparent 2px);
+  animation: solarStarTwinkle 3.4s ease-in-out infinite;
+}
+
+#largeAnalogClock .solar-sun {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 26px;
+  height: 26px;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background: radial-gradient(circle, #fff7ad, #f59e0b 58%, #ef4444);
+  box-shadow: 0 0 28px #f59e0b, 0 0 72px rgba(245,158,11,.45);
+  z-index: 5;
+}
+
+#largeAnalogClock .solar-orbit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 999px;
+  border: 1px dashed rgba(255,255,255,.16);
+  transform: translate(-50%, -50%);
+}
+
+#largeAnalogClock .solar-orbit-1 { width: 86px; height: 86px; }
+#largeAnalogClock .solar-orbit-2 { width: 150px; height: 150px; }
+#largeAnalogClock .solar-orbit-3 { width: 224px; height: 224px; }
+#largeAnalogClock .solar-orbit-4 { width: 310px; height: 310px; }
+
+#largeAnalogClock .solar-planet,
+#largeAnalogClock .solar-rocket {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 6;
+  transform-origin: 0 0;
+}
+
+#largeAnalogClock .solar-planet::before {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  box-shadow: 0 0 14px currentColor;
+  background: currentColor;
+}
+
+#largeAnalogClock .mercury { color:#e5e7eb; animation: solarOrbit 7s linear infinite; }
+#largeAnalogClock .mercury::before { width:5px; height:5px; transform:translateX(43px); }
+#largeAnalogClock .venus { color:#fbbf24; animation: solarOrbit 10s linear infinite reverse; }
+#largeAnalogClock .venus::before { width:8px; height:8px; transform:translateX(62px); }
+#largeAnalogClock .earth { color:#38bdf8; animation: solarOrbit 14s linear infinite; }
+#largeAnalogClock .earth::before { width:9px; height:9px; transform:translateX(82px); }
+#largeAnalogClock .mars { color:#fb7185; animation: solarOrbit 18s linear infinite reverse; }
+#largeAnalogClock .mars::before { width:7px; height:7px; transform:translateX(102px); }
+#largeAnalogClock .jupiter { color:#f97316; animation: solarOrbit 26s linear infinite; }
+#largeAnalogClock .jupiter::before { width:14px; height:14px; transform:translateX(124px); }
+#largeAnalogClock .saturn { color:#fde68a; animation: solarOrbit 34s linear infinite reverse; }
+#largeAnalogClock .saturn::before { width:12px; height:12px; transform:translateX(146px); box-shadow: 0 0 14px currentColor, 0 0 0 5px rgba(253,230,138,.18); }
+#largeAnalogClock .uranus { color:#67e8f9; animation: solarOrbit 42s linear infinite; }
+#largeAnalogClock .uranus::before { width:10px; height:10px; transform:translateX(162px); }
+#largeAnalogClock .neptune { color:#818cf8; animation: solarOrbit 52s linear infinite reverse; }
+#largeAnalogClock .neptune::before { width:10px; height:10px; transform:translateX(178px); }
+#largeAnalogClock .solar-rocket {
+  font-size: 18px;
+  animation: solarRocketByTime 60s linear infinite;
+  filter: drop-shadow(0 0 12px var(--accent));
+}
+
+@keyframes solarOrbit {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes solarRocketByTime {
+  from { transform: rotate(var(--solar-minute-angle, 0deg)) translateX(188px) rotate(42deg); }
+  to { transform: rotate(calc(var(--solar-minute-angle, 0deg) + 360deg)) translateX(188px) rotate(42deg); }
+}
+
+@keyframes solarStarTwinkle {
+  50% { opacity: .52; filter: brightness(1.4); }
+}
+
+/* Life Hub World Clock command center. */
+#worldClock.world-clock-page {
+  background:
+    radial-gradient(circle at 18% 6%, rgba(34,211,238,.16), transparent 28%),
+    radial-gradient(circle at 92% 24%, rgba(167,139,250,.15), transparent 34%),
+    linear-gradient(135deg, color-mix(in srgb, var(--bg) 92%, #020617), color-mix(in srgb, var(--surface) 86%, #0f172a)) !important;
+  border-radius: 24px !important;
+  padding: clamp(14px, 2vw, 24px) !important;
+}
+
+#worldClock .section-head {
+  padding: 18px !important;
+  border-radius: 22px !important;
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent) !important;
+  background: color-mix(in srgb, var(--card) 72%, transparent) !important;
+  box-shadow: 0 20px 50px rgba(0,0,0,.24) !important;
+}
+
+#worldClock .world-clock-intro-tile {
+  margin: 14px 0 !important;
+  border-radius: 22px !important;
+  background:
+    radial-gradient(circle at 90% 20%, rgba(251,191,36,.16), transparent 28%),
+    linear-gradient(135deg, rgba(8,47,73,.9), rgba(49,46,129,.72)) !important;
+  border-color: rgba(56,189,248,.36) !important;
+  box-shadow: 0 18px 42px rgba(0,0,0,.26) !important;
+}
+
+#worldClock .world-clock-center {
+  border-radius: 24px !important;
+  padding: 16px !important;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--card) 78%, transparent), color-mix(in srgb, var(--surface) 88%, #0ea5e9 6%)) !important;
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent) !important;
+}
+
+#worldClock .world-clock-add {
+  display: grid !important;
+  grid-template-columns: 1.2fr 1fr 1fr 1.4fr auto !important;
+  gap: 10px !important;
+  align-items: end !important;
+}
+
+#worldClock .world-clock-add input {
+  min-height: 44px !important;
+  border-radius: 14px !important;
+  border: 1px solid color-mix(in srgb, var(--accent) 24%, transparent) !important;
+  background: color-mix(in srgb, var(--surface) 78%, transparent) !important;
+}
+
+#worldClock .clock-format-actions {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  margin: 14px 0 !important;
+}
+
+#worldClock .world-clock-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+}
+
+#worldClock .world-clock-card {
+  position: relative !important;
+  display: grid !important;
+  grid-template-columns: 52px minmax(0, 1fr) auto !important;
+  gap: 12px !important;
+  align-items: center !important;
+  min-height: 150px !important;
+  padding: 14px !important;
+  overflow: hidden !important;
+  border-radius: 20px !important;
+  border: 1px solid color-mix(in srgb, var(--clock-accent, var(--accent)) 36%, transparent) !important;
+  background:
+    radial-gradient(circle at 90% 16%, color-mix(in srgb, var(--clock-accent, var(--accent)) 22%, transparent), transparent 34%),
+    linear-gradient(135deg, color-mix(in srgb, var(--card) 82%, transparent), color-mix(in srgb, var(--surface) 72%, transparent)) !important;
+  box-shadow: 0 18px 38px rgba(0,0,0,.22) !important;
+}
+
+#worldClock .world-clock-card.is-day { --clock-accent:#fbbf24; }
+#worldClock .world-clock-card.is-night { --clock-accent:#60a5fa; }
+
+#worldClock .world-clock-orb {
+  width: 50px;
+  height: 50px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--clock-accent) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--clock-accent) 42%, transparent);
+}
+
+#worldClock .world-clock-orb span {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: var(--clock-accent);
+  box-shadow: 0 0 18px var(--clock-accent);
+}
+
+#worldClock .world-clock-copy {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+#worldClock .world-clock-copy > span {
+  color: color-mix(in srgb, var(--clock-accent) 82%, #fff);
+  font-weight: 950;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+#worldClock .world-clock-copy strong {
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: clamp(1.45rem, 3vw, 2.3rem);
+  color: var(--text);
+  letter-spacing: .02em;
+}
+
+#worldClock .world-clock-copy small,
+#worldClock .world-clock-copy em {
+  color: var(--muted);
+  font-style: normal;
+  overflow-wrap: anywhere;
+}
+
+#worldClock .world-clock-actions {
+  display: grid;
+  gap: 8px;
+  justify-items: end;
+}
+
+#worldClock .world-clock-actions b {
+  padding: 5px 9px;
+  border-radius: 999px;
+  color: var(--clock-accent);
+  background: color-mix(in srgb, var(--clock-accent) 13%, transparent);
+  border: 1px solid color-mix(in srgb, var(--clock-accent) 28%, transparent);
+  font-size: .72rem;
+}
+
+@media (max-width: 1050px) {
+  #worldClock .world-clock-add,
+  #worldClock .world-clock-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 680px) {
+  #worldClock .world-clock-add,
+  #worldClock .world-clock-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Home hero command pulse merge */
+body.is-home-page #dashboard .home-command-hero {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+  min-height: clamp(330px, 36vw, 470px) !important;
+  padding: clamp(28px, 4vw, 56px) !important;
+  border: 1px solid color-mix(in srgb, var(--primary) 28%, transparent) !important;
+  background:
+    radial-gradient(circle at 12% 18%, color-mix(in srgb, var(--primary) 22%, transparent), transparent 34%),
+    radial-gradient(circle at 82% 28%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 36%),
+    radial-gradient(circle at 50% 108%, color-mix(in srgb, var(--secondary) 18%, transparent), transparent 42%),
+    linear-gradient(135deg, color-mix(in srgb, var(--bg) 80%, #000), color-mix(in srgb, var(--surface) 82%, #000)) !important;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, .42), inset 0 1px 0 rgba(255,255,255,.08) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero::before,
+body.is-home-page #dashboard .home-command-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+body.is-home-page #dashboard .home-command-hero::before {
+  z-index: 0;
+  background:
+    linear-gradient(90deg, transparent 0 8%, color-mix(in srgb, var(--primary) 12%, transparent) 9%, transparent 10% 100%),
+    repeating-linear-gradient(115deg, rgba(255,255,255,.045) 0 1px, transparent 1px 58px);
+  mask-image: radial-gradient(circle at 35% 42%, #000, transparent 78%);
+  opacity: .7;
+  animation: heroPulseGridDrift 22s linear infinite;
+}
+
+body.is-home-page #dashboard .home-command-hero::after {
+  z-index: 1;
+  background:
+    radial-gradient(circle at 88% 72%, color-mix(in srgb, var(--primary) 18%, transparent), transparent 24%),
+    linear-gradient(180deg, rgba(255,255,255,.07), transparent 28%, rgba(0,0,0,.14));
+  mix-blend-mode: screen;
+  opacity: .65;
+}
+
+body.is-home-page #dashboard .home-command-intro > :not(.hero-live-pulse),
+body.is-home-page #dashboard .hero-clock-console,
+body.is-home-page #dashboard .home-active-date {
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 2 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: inherit !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse::before {
+  z-index: 0 !important;
+  inset: 0 !important;
+  border-radius: inherit !important;
+  opacity: .7 !important;
+  background:
+    radial-gradient(circle at 18% 78%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 28%),
+    radial-gradient(circle at 72% 18%, color-mix(in srgb, var(--primary) 16%, transparent), transparent 28%) !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse::after {
+  z-index: 1 !important;
+  inset: 0 !important;
+  opacity: .42 !important;
+  background: linear-gradient(110deg, transparent 0 36%, rgba(255,255,255,.12) 47%, transparent 58% 100%) !important;
+  animation: heroPulseScanner 9s ease-in-out infinite !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-status-dot,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-ecg,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-equalizer,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-tune,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-tune-two,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-music-lane,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-wifi,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-rocket,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-solar-mini,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-heartline,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-lightning,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-data-rain {
+  position: absolute !important;
+  z-index: 3 !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-status-dot {
+  left: clamp(18px, 2.6vw, 38px) !important;
+  top: clamp(18px, 2.2vw, 34px) !important;
+  box-shadow: 0 0 22px color-mix(in srgb, var(--success) 78%, transparent) !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-ecg {
+  left: clamp(28px, 5vw, 76px) !important;
+  top: clamp(78px, 15vw, 160px) !important;
+  width: min(54vw, 560px) !important;
+  max-width: none !important;
+  height: 110px !important;
+  opacity: .78 !important;
+  filter: drop-shadow(0 0 18px color-mix(in srgb, var(--warning) 45%, transparent)) !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-marquee {
+  position: absolute !important;
+  left: clamp(18px, 3vw, 48px) !important;
+  right: clamp(18px, 3vw, 48px) !important;
+  bottom: clamp(18px, 2.6vw, 32px) !important;
+  z-index: 7 !important;
+  min-width: 0 !important;
+  height: 42px !important;
+  border: 1px solid color-mix(in srgb, var(--primary) 30%, transparent) !important;
+  border-radius: 999px !important;
+  background: color-mix(in srgb, var(--bg) 58%, transparent) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 14px 42px rgba(0,0,0,.22) !important;
+  backdrop-filter: blur(16px) !important;
+  cursor: pointer !important;
+  text-align: left !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-marquee span {
+  animation-duration: 95s !important;
+  color: color-mix(in srgb, var(--text) 92%, var(--primary)) !important;
+  text-shadow: 0 0 18px color-mix(in srgb, var(--primary) 25%, transparent) !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse > strong {
+  position: absolute !important;
+  right: clamp(22px, 3vw, 48px) !important;
+  top: clamp(20px, 2.8vw, 40px) !important;
+  z-index: 7 !important;
+  padding: 8px 12px !important;
+  border-radius: 999px !important;
+  border: 1px solid color-mix(in srgb, var(--success) 38%, transparent) !important;
+  background: color-mix(in srgb, var(--success) 10%, var(--bg)) !important;
+  color: color-mix(in srgb, var(--success) 80%, #fff) !important;
+  box-shadow: 0 0 26px color-mix(in srgb, var(--success) 18%, transparent) !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-mode-badge {
+  position: absolute !important;
+  left: clamp(22px, 3vw, 48px) !important;
+  top: clamp(52px, 5vw, 78px) !important;
+  z-index: 7 !important;
+  padding: 7px 11px !important;
+  border-radius: 999px !important;
+  background: color-mix(in srgb, var(--primary) 14%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--primary) 26%, transparent) !important;
+  color: color-mix(in srgb, var(--primary) 80%, #fff) !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-equalizer {
+  right: clamp(220px, 24vw, 360px) !important;
+  top: clamp(74px, 8vw, 118px) !important;
+  opacity: .82 !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-tune {
+  right: clamp(110px, 15vw, 250px) !important;
+  top: clamp(118px, 13vw, 190px) !important;
+  opacity: .78 !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-tune-two {
+  right: clamp(180px, 22vw, 330px) !important;
+  bottom: clamp(78px, 8vw, 120px) !important;
+  opacity: .64 !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-wifi {
+  right: clamp(34px, 5vw, 86px) !important;
+  bottom: clamp(76px, 8vw, 130px) !important;
+  opacity: .72 !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-rocket {
+  left: -90px !important;
+  top: clamp(44px, 10vw, 132px) !important;
+  animation-duration: 24s !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-solar-mini {
+  right: clamp(86px, 12vw, 210px) !important;
+  top: clamp(52px, 9vw, 140px) !important;
+  opacity: .55 !important;
+  transform: scale(1.28) !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-heartline {
+  left: clamp(24px, 4vw, 66px) !important;
+  bottom: clamp(74px, 8vw, 124px) !important;
+  width: min(42vw, 460px) !important;
+  opacity: .86 !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-data-rain {
+  right: 0 !important;
+  top: 0 !important;
+  width: min(28vw, 340px) !important;
+  height: 100% !important;
+  opacity: .32 !important;
+}
+
+body.is-home-page #dashboard .hero-pulse-style-button {
+  position: relative !important;
+  z-index: 8 !important;
+  width: fit-content !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin-top: 12px !important;
+  padding: 8px 11px !important;
+  border-radius: 999px !important;
+  border: 1px solid color-mix(in srgb, var(--primary) 34%, transparent) !important;
+  background:
+    radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--accent) 24%, transparent), transparent 42%),
+    color-mix(in srgb, var(--surface) 64%, transparent) !important;
+  color: var(--text) !important;
+  box-shadow: 0 14px 34px rgba(0,0,0,.24), 0 0 24px color-mix(in srgb, var(--primary) 16%, transparent) !important;
+  backdrop-filter: blur(14px) !important;
+  cursor: pointer !important;
+}
+
+body.is-home-page #dashboard .hero-pulse-style-button span {
+  width: 28px !important;
+  height: 28px !important;
+  border-radius: 999px !important;
+  display: grid !important;
+  place-items: center !important;
+  color: #06111f !important;
+  background: linear-gradient(135deg, var(--primary), var(--accent)) !important;
+  font-size: .72rem !important;
+  font-weight: 950 !important;
+  box-shadow: 0 0 18px color-mix(in srgb, var(--primary) 42%, transparent) !important;
+}
+
+body.is-home-page #dashboard .hero-pulse-style-button b {
+  font-size: .72rem !important;
+  letter-spacing: .08em !important;
+  text-transform: uppercase !important;
+}
+
+body.is-home-page #dashboard .hero-pulse-style-button:hover {
+  transform: translateY(-1px) !important;
+  border-color: color-mix(in srgb, var(--accent) 62%, transparent) !important;
+}
+
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="heartbeat"] .pulse-heartline,
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="heartbeat"] .pulse-beat {
+  opacity: 1 !important;
+  filter: drop-shadow(0 0 20px #fb7185) !important;
+}
+
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="heartbeat"] .pulse-ecg polyline {
+  stroke: #fb7185 !important;
+  animation-duration: 2.15s !important;
+}
+
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="thunder"] .pulse-lightning {
+  opacity: 1 !important;
+  filter: drop-shadow(0 0 28px #fde047) !important;
+}
+
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="thunder"]::after {
+  opacity: .72 !important;
+  background:
+    linear-gradient(115deg, transparent 0 32%, rgba(253, 224, 71, .34) 34%, transparent 39% 100%),
+    linear-gradient(155deg, transparent 0 60%, rgba(56, 189, 248, .24) 62%, transparent 66% 100%) !important;
+  animation-duration: 4.4s !important;
+}
+
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="solar"] .pulse-solar-mini,
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="sunrays"] .pulse-solar-mini {
+  opacity: 1 !important;
+  transform: scale(1.75) !important;
+  filter: drop-shadow(0 0 28px #fbbf24) !important;
+}
+
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="sunrays"]::before {
+  opacity: .9 !important;
+  background:
+    conic-gradient(from 10deg at 78% 30%, transparent 0 8%, rgba(251, 191, 36, .22) 9% 11%, transparent 12% 20%),
+    radial-gradient(circle at 78% 30%, rgba(251, 191, 36, .28), transparent 34%) !important;
+}
+
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="space"] .pulse-rocket {
+  opacity: 1 !important;
+  animation-duration: 30s !important;
+}
+
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="space"] .pulse-orbit-dot,
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="space"] .pulse-satellite,
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="space"] .pulse-solar-mini {
+  opacity: .95 !important;
+  filter: drop-shadow(0 0 16px color-mix(in srgb, var(--accent) 50%, transparent)) !important;
+}
+
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="music"] .pulse-music-lane,
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="music"] .pulse-tune,
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="music"] .pulse-tune-two,
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="music"] .pulse-equalizer {
+  opacity: 1 !important;
+  filter: drop-shadow(0 0 18px #a78bfa) !important;
+}
+
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="radar"] .pulse-wifi,
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="sonar"] .pulse-wifi,
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="radar"] .pulse-signal-bars,
+body.is-home-page #dashboard .hero-live-pulse[data-pulse-style="sonar"] .pulse-signal-bars {
+  opacity: 1 !important;
+}
+
+body.is-home-page #dashboard .home-command-hero #dashboardGreeting {
+  text-shadow: 0 0 30px color-mix(in srgb, var(--primary) 22%, transparent) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero .hero-clock-console {
+  backdrop-filter: blur(14px) !important;
+}
+
+@keyframes heroPulseGridDrift {
+  0% { transform: translate3d(-2%, -1%, 0) scale(1); }
+  50% { transform: translate3d(2%, 1%, 0) scale(1.02); }
+  100% { transform: translate3d(-2%, -1%, 0) scale(1); }
+}
+
+@keyframes heroPulseScanner {
+  0%, 100% { transform: translateX(-55%); opacity: .12; }
+  45%, 55% { opacity: .42; }
+  100% { transform: translateX(55%); }
+}
+
+@media (max-width: 840px) {
+  body.is-home-page #dashboard .home-command-hero {
+    min-height: 520px !important;
+    padding-bottom: 84px !important;
+  }
+
+  body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-ecg {
+    width: 76vw !important;
+    top: 210px !important;
+  }
+
+  body.is-home-page #dashboard .home-command-intro .hero-live-pulse > strong {
+    left: 22px !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: 74px !important;
+  }
+
+  body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-marquee {
+    height: 38px !important;
+  }
+}
+
+/* Hero pulse background correction: one full-rectangle live layer, FX-controlled. */
+body.is-home-page #dashboard .home-command-hero {
+  border-radius: 30px !important;
+}
+
+body.is-home-page #dashboard .home-command-intro {
+  position: static !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  border-radius: inherit !important;
+  pointer-events: none !important;
+  background:
+    radial-gradient(circle at 18% 72%, rgba(20, 184, 166, .24), transparent 34%),
+    radial-gradient(circle at 82% 22%, rgba(56, 189, 248, .22), transparent 36%),
+    linear-gradient(135deg, rgba(5, 12, 28, .68), rgba(9, 18, 38, .46)) !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse::before,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse::after {
+  border-radius: inherit !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-marquee,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-marquee * {
+  pointer-events: auto !important;
+}
+
+body.is-home-page #dashboard .home-command-hero .home-command-intro > :not(.hero-live-pulse),
+body.is-home-page #dashboard .home-command-hero .hero-clock-console,
+body.is-home-page #dashboard .home-command-hero .home-active-date {
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+body.is-home-page #dashboard .home-command-hero .home-command-intro > h2,
+body.is-home-page #dashboard .home-command-hero .home-command-intro > p:not(.home-live-date),
+body.is-home-page #dashboard .home-command-hero .home-live-date {
+  width: fit-content !important;
+  max-width: min(720px, 92vw) !important;
+  padding-inline: .04em !important;
+}
+
+body.is-home-page #dashboard .home-command-hero .home-command-intro > p:not(.home-live-date) {
+  padding: 8px 12px !important;
+  border-radius: 16px !important;
+  background: color-mix(in srgb, var(--bg) 30%, transparent) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-status-dot,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-wave,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-beat,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-heartline,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-tune,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-orbit-dot,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-spark,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-signal-bars,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-data-rain,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-lightning,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-rocket,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-satellite,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-wifi,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-solar-mini,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-music-lane,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-ecg,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-equalizer {
+  opacity: 0 !important;
+  animation-play-state: paused !important;
+  transition: opacity .45s ease, transform .45s ease, filter .45s ease !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="cinema"] {
+  background:
+    radial-gradient(circle at 20% 72%, rgba(34, 211, 238, .24), transparent 34%),
+    radial-gradient(circle at 68% 22%, rgba(168, 85, 247, .24), transparent 34%),
+    radial-gradient(circle at 92% 78%, rgba(20, 184, 166, .18), transparent 30%),
+    linear-gradient(135deg, rgba(2, 7, 19, .82), rgba(15, 23, 42, .58)) !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="cinema"]::before {
+  opacity: .92 !important;
+  background:
+    radial-gradient(circle at 45% 45%, rgba(255,255,255,.08), transparent 22%),
+    repeating-linear-gradient(115deg, rgba(125, 211, 252, .09) 0 1px, transparent 1px 54px),
+    linear-gradient(90deg, transparent, rgba(34, 211, 238, .12), transparent) !important;
+  animation: heroCinematicNebula 16s ease-in-out infinite !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="cinema"]::after {
+  opacity: .54 !important;
+  background:
+    radial-gradient(circle at 82% 26%, rgba(251, 191, 36, .22), transparent 18%),
+    linear-gradient(110deg, transparent 0 38%, rgba(255,255,255,.14) 47%, transparent 58% 100%) !important;
+  animation: heroPulseScanner 12s ease-in-out infinite !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="cinema"] .pulse-rocket,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="cinema"] .pulse-solar-mini,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="cinema"] .pulse-orbit-dot,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="cinema"] .pulse-spark {
+  opacity: .86 !important;
+  animation-play-state: running !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="heartbeat"] .pulse-heartline,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="heartbeat"] .pulse-beat,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="heartbeat"] .pulse-ecg {
+  opacity: 1 !important;
+  animation-play-state: running !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="thunder"] .pulse-lightning,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="thunder"] .pulse-spark {
+  opacity: 1 !important;
+  animation-play-state: running !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="music"] .pulse-tune,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="music"] .pulse-music-lane,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="music"] .pulse-equalizer {
+  opacity: 1 !important;
+  animation-play-state: running !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="solar"] .pulse-solar-mini,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="solar"] .pulse-orbit-dot,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="sunrays"] .pulse-solar-mini,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="sunrays"] .pulse-spark {
+  opacity: 1 !important;
+  animation-play-state: running !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="space"] .pulse-rocket,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="space"] .pulse-satellite,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="space"] .pulse-solar-mini,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="space"] .pulse-orbit-dot {
+  opacity: 1 !important;
+  animation-play-state: running !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="radar"] .pulse-wifi,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="radar"] .pulse-signal-bars,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="sonar"] .pulse-wifi,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="sonar"] .pulse-wave {
+  opacity: 1 !important;
+  animation-play-state: running !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="data"] .pulse-data-rain,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="matrix"] .pulse-data-rain {
+  opacity: .8 !important;
+  animation-play-state: running !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="hyper"] .pulse-rocket,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="hyper"] .pulse-lightning,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="hyper"] .pulse-ecg {
+  opacity: 1 !important;
+  animation-play-state: running !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="nebula"] .pulse-orbit-dot,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="nebula"] .pulse-spark,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="scanner"] .pulse-ecg,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="orbit"] .pulse-orbit-dot,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="wave"] .pulse-wave,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="equalizer"] .pulse-equalizer,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="ecg"] .pulse-ecg {
+  opacity: 1 !important;
+  animation-play-state: running !important;
+}
+
+@keyframes heroCinematicNebula {
+  0%, 100% { transform: translate3d(-1.5%, -1%, 0) scale(1); filter: hue-rotate(0deg); }
+  50% { transform: translate3d(1.5%, 1%, 0) scale(1.035); filter: hue-rotate(16deg); }
+}
+
+/* Cleaner one-layer hero FX scenes. */
+body.is-home-page #dashboard .home-command-hero::before,
+body.is-home-page #dashboard .home-command-hero::after {
+  opacity: .18 !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-mode-badge {
+  display: none !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse::before {
+  opacity: .86 !important;
+  background:
+    radial-gradient(circle at 24% 72%, color-mix(in srgb, var(--primary) 22%, transparent), transparent 34%),
+    radial-gradient(circle at 78% 28%, color-mix(in srgb, var(--accent) 20%, transparent), transparent 36%),
+    linear-gradient(135deg, rgba(2, 8, 20, .62), rgba(8, 17, 34, .36)) !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse::after {
+  opacity: .34 !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="heartbeat"] {
+  background:
+    radial-gradient(circle at 20% 72%, rgba(244, 63, 94, .2), transparent 34%),
+    radial-gradient(circle at 72% 24%, rgba(56, 189, 248, .16), transparent 34%),
+    linear-gradient(135deg, rgba(22, 5, 18, .72), rgba(3, 12, 25, .46)) !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="thunder"] {
+  background:
+    radial-gradient(circle at 72% 20%, rgba(253, 224, 71, .2), transparent 32%),
+    radial-gradient(circle at 24% 76%, rgba(59, 130, 246, .18), transparent 34%),
+    linear-gradient(135deg, rgba(10, 10, 24, .72), rgba(2, 8, 22, .44)) !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="music"] {
+  background:
+    radial-gradient(circle at 18% 74%, rgba(168, 85, 247, .22), transparent 34%),
+    radial-gradient(circle at 78% 28%, rgba(34, 211, 238, .18), transparent 34%),
+    linear-gradient(135deg, rgba(18, 7, 33, .7), rgba(2, 11, 25, .42)) !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="solar"],
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="sunrays"] {
+  background:
+    radial-gradient(circle at 78% 26%, rgba(251, 191, 36, .27), transparent 30%),
+    radial-gradient(circle at 26% 70%, rgba(20, 184, 166, .16), transparent 36%),
+    linear-gradient(135deg, rgba(20, 10, 2, .72), rgba(2, 13, 24, .44)) !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="space"],
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="nebula"],
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="cinema"] {
+  background:
+    radial-gradient(circle at 18% 74%, rgba(34, 211, 238, .2), transparent 34%),
+    radial-gradient(circle at 66% 24%, rgba(168, 85, 247, .22), transparent 34%),
+    radial-gradient(circle at 90% 80%, rgba(251, 191, 36, .12), transparent 28%),
+    linear-gradient(135deg, rgba(2, 7, 19, .76), rgba(15, 23, 42, .46)) !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="radar"],
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="sonar"] {
+  background:
+    radial-gradient(circle at 70% 58%, rgba(45, 212, 191, .22), transparent 36%),
+    radial-gradient(circle at 20% 28%, rgba(56, 189, 248, .14), transparent 32%),
+    linear-gradient(135deg, rgba(2, 18, 20, .72), rgba(4, 12, 24, .42)) !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="data"],
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="matrix"] {
+  background:
+    radial-gradient(circle at 26% 70%, rgba(34, 197, 94, .22), transparent 34%),
+    radial-gradient(circle at 82% 30%, rgba(34, 211, 238, .13), transparent 34%),
+    linear-gradient(135deg, rgba(2, 20, 14, .72), rgba(2, 10, 22, .42)) !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="hyper"],
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="scanner"],
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="orbit"],
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="wave"],
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="equalizer"],
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse[data-pulse-style="ecg"] {
+  background:
+    radial-gradient(circle at 20% 74%, rgba(56, 189, 248, .2), transparent 34%),
+    radial-gradient(circle at 82% 24%, rgba(20, 184, 166, .16), transparent 34%),
+    linear-gradient(135deg, rgba(3, 12, 28, .72), rgba(2, 7, 19, .42)) !important;
+}
+
+.prayer-time-format-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 12px;
+}
+
+.prayer-time-format-switch .is-active {
+  border-color: color-mix(in srgb, var(--primary) 70%, transparent) !important;
+  background: color-mix(in srgb, var(--primary) 20%, var(--surface)) !important;
+  color: var(--text) !important;
+  box-shadow: 0 0 18px color-mix(in srgb, var(--primary) 18%, transparent) !important;
+}
+
+/* Full-hero FX engine. The News Center ticker stays unchanged. */
+body.is-home-page #dashboard .home-command-hero {
+  transition: background .55s ease, box-shadow .55s ease, border-color .55s ease !important;
+}
+
+body.is-home-page #dashboard .hero-fx-status {
+  position: relative !important;
+  z-index: 10 !important;
+  width: fit-content !important;
+  display: inline-flex !important;
+  margin-top: 8px !important;
+  padding: 6px 10px !important;
+  border: 1px solid color-mix(in srgb, var(--primary) 28%, transparent) !important;
+  border-radius: 999px !important;
+  background: color-mix(in srgb, var(--bg) 44%, transparent) !important;
+  color: color-mix(in srgb, var(--text) 88%, var(--primary)) !important;
+  box-shadow: 0 12px 28px rgba(0,0,0,.18) !important;
+  backdrop-filter: blur(12px) !important;
+  font-weight: 850 !important;
+  letter-spacing: .04em !important;
+  text-transform: uppercase !important;
+}
+
+body.is-home-page #dashboard .home-command-hero[class*="hero-fx-"] .hero-live-pulse {
+  background-size: 160% 160% !important;
+  animation: heroFxSceneBreath 18s ease-in-out infinite !important;
+}
+
+body.is-home-page #dashboard .home-command-hero[class*="hero-fx-"] .hero-live-pulse::before {
+  opacity: .94 !important;
+  background-size: 180% 180% !important;
+  animation: heroFxLayerDrift 22s ease-in-out infinite !important;
+}
+
+body.is-home-page #dashboard .home-command-hero[class*="hero-fx-"] .hero-live-pulse::after {
+  opacity: .46 !important;
+  background-size: 200% 200% !important;
+  animation: heroFxLightSweep 13s ease-in-out infinite !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-restart .hero-live-pulse {
+  animation: heroFxRestartPulse .72s ease-out, heroFxSceneBreath 18s ease-in-out infinite !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-deep-ocean {
+  border-color: rgba(45, 212, 191, .42) !important;
+  background: linear-gradient(135deg, #031827, #052c3b 48%, #04101f) !important;
+  box-shadow: 0 30px 90px rgba(6, 182, 212, .16), inset 0 1px 0 rgba(255,255,255,.08) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-deep-ocean .hero-live-pulse {
+  background:
+    radial-gradient(circle at 18% 78%, rgba(45, 212, 191, .34), transparent 32%),
+    repeating-radial-gradient(ellipse at 55% 108%, rgba(125, 211, 252, .16) 0 10px, transparent 11px 32px),
+    linear-gradient(180deg, rgba(8, 47, 73, .74), rgba(2, 8, 23, .38)) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-rocket .hero-live-pulse,
+body.is-home-page #dashboard .home-command-hero.hero-fx-meteor .hero-live-pulse {
+  background:
+    radial-gradient(circle at 80% 24%, rgba(251, 191, 36, .18), transparent 26%),
+    linear-gradient(118deg, transparent 0 42%, rgba(56, 189, 248, .2) 45%, transparent 51% 100%),
+    radial-gradient(circle at 20% 80%, rgba(99, 102, 241, .22), transparent 34%),
+    linear-gradient(135deg, rgba(2, 6, 23, .82), rgba(15, 23, 42, .45)) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-lion .hero-live-pulse {
+  background:
+    radial-gradient(circle at 72% 30%, rgba(250, 204, 21, .24), transparent 28%),
+    linear-gradient(105deg, rgba(120, 53, 15, .24) 0 12%, transparent 12% 24%, rgba(146, 64, 14, .18) 24% 36%, transparent 36%),
+    linear-gradient(135deg, rgba(67, 20, 7, .72), rgba(20, 14, 8, .46)) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-tiger .hero-live-pulse {
+  background:
+    repeating-linear-gradient(112deg, rgba(251, 146, 60, .24) 0 16px, rgba(15, 23, 42, .18) 17px 30px, transparent 31px 54px),
+    radial-gradient(circle at 72% 30%, rgba(249, 115, 22, .24), transparent 30%),
+    linear-gradient(135deg, rgba(59, 20, 4, .74), rgba(2, 6, 23, .4)) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-bear .hero-live-pulse {
+  background:
+    radial-gradient(circle at 18% 76%, rgba(245, 158, 11, .28), transparent 32%),
+    radial-gradient(circle at 74% 24%, rgba(120, 53, 15, .24), transparent 38%),
+    linear-gradient(135deg, rgba(41, 24, 10, .76), rgba(11, 7, 4, .45)) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-eclipse .hero-live-pulse {
+  background:
+    radial-gradient(circle at 76% 32%, transparent 0 54px, rgba(250, 204, 21, .42) 57px 64px, transparent 68px),
+    radial-gradient(circle at 76% 32%, rgba(0, 0, 0, .82), transparent 30%),
+    radial-gradient(circle at 22% 76%, rgba(14, 165, 233, .14), transparent 32%),
+    linear-gradient(135deg, rgba(2, 6, 23, .86), rgba(7, 10, 24, .5)) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-black-hole .hero-live-pulse {
+  background:
+    radial-gradient(circle at 64% 45%, #020617 0 38px, transparent 42px),
+    conic-gradient(from 20deg at 64% 45%, transparent, rgba(251, 191, 36, .28), rgba(168, 85, 247, .28), rgba(34, 211, 238, .2), transparent),
+    radial-gradient(circle at 22% 80%, rgba(99, 102, 241, .18), transparent 34%),
+    linear-gradient(135deg, rgba(2, 6, 23, .84), rgba(8, 13, 31, .46)) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-ocean-waves .hero-live-pulse {
+  background:
+    repeating-radial-gradient(ellipse at 50% 110%, rgba(14, 165, 233, .23) 0 12px, transparent 13px 34px),
+    linear-gradient(170deg, rgba(56, 189, 248, .22), transparent 42%),
+    linear-gradient(135deg, rgba(7, 89, 133, .74), rgba(2, 8, 23, .44)) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-superman .hero-live-pulse {
+  background:
+    linear-gradient(105deg, rgba(239, 68, 68, .28) 0 12%, transparent 13% 44%, rgba(59, 130, 246, .3) 45% 60%, transparent 61%),
+    radial-gradient(circle at 70% 28%, rgba(250, 204, 21, .2), transparent 28%),
+    linear-gradient(135deg, rgba(8, 47, 73, .76), rgba(15, 23, 42, .44)) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-batman .hero-live-pulse {
+  background:
+    linear-gradient(180deg, rgba(15, 23, 42, .88), rgba(2, 6, 23, .52)),
+    repeating-linear-gradient(90deg, transparent 0 28px, rgba(148, 163, 184, .12) 29px 31px),
+    radial-gradient(circle at 76% 30%, rgba(250, 204, 21, .22), transparent 22%) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-bird-nature .hero-live-pulse {
+  background:
+    radial-gradient(ellipse at 20% 18%, rgba(255,255,255,.16), transparent 18%),
+    radial-gradient(circle at 80% 30%, rgba(132, 204, 22, .2), transparent 32%),
+    linear-gradient(135deg, rgba(20, 83, 45, .72), rgba(6, 78, 59, .42)) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-galaxy-orbit .hero-live-pulse,
+body.is-home-page #dashboard .home-command-hero.hero-fx-space-nebula .hero-live-pulse {
+  background:
+    radial-gradient(circle at 72% 28%, rgba(168, 85, 247, .28), transparent 32%),
+    radial-gradient(circle at 22% 76%, rgba(34, 211, 238, .22), transparent 34%),
+    radial-gradient(circle at 88% 82%, rgba(251, 191, 36, .12), transparent 24%),
+    linear-gradient(135deg, rgba(2, 6, 23, .84), rgba(17, 24, 39, .44)) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-thunder-storm .hero-live-pulse {
+  background:
+    linear-gradient(115deg, transparent 0 32%, rgba(250, 204, 21, .26) 34%, transparent 39%),
+    radial-gradient(circle at 70% 26%, rgba(59, 130, 246, .24), transparent 34%),
+    linear-gradient(135deg, rgba(15, 23, 42, .82), rgba(2, 6, 23, .5)) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-neon-data .hero-live-pulse,
+body.is-home-page #dashboard .home-command-hero.hero-fx-cyber-city .hero-live-pulse {
+  background:
+    repeating-linear-gradient(90deg, rgba(34, 211, 238, .1) 0 1px, transparent 1px 34px),
+    repeating-linear-gradient(0deg, rgba(34, 197, 94, .08) 0 1px, transparent 1px 28px),
+    radial-gradient(circle at 80% 24%, rgba(34, 211, 238, .22), transparent 32%),
+    linear-gradient(135deg, rgba(2, 20, 18, .78), rgba(2, 6, 23, .46)) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-scientific-grid .hero-live-pulse {
+  background:
+    repeating-linear-gradient(90deg, rgba(125, 211, 252, .13) 0 1px, transparent 1px 42px),
+    repeating-linear-gradient(0deg, rgba(125, 211, 252, .09) 0 1px, transparent 1px 42px),
+    radial-gradient(circle at 68% 30%, rgba(59, 130, 246, .18), transparent 32%),
+    linear-gradient(135deg, rgba(8, 20, 38, .78), rgba(2, 6, 23, .44)) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-dna-helix .hero-live-pulse {
+  background:
+    repeating-linear-gradient(112deg, rgba(45, 212, 191, .16) 0 4px, transparent 5px 22px),
+    repeating-linear-gradient(68deg, rgba(168, 85, 247, .13) 0 4px, transparent 5px 22px),
+    radial-gradient(circle at 76% 28%, rgba(20, 184, 166, .2), transparent 34%),
+    linear-gradient(135deg, rgba(3, 28, 34, .74), rgba(15, 23, 42, .44)) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-volcano .hero-live-pulse {
+  background:
+    radial-gradient(circle at 24% 78%, rgba(239, 68, 68, .3), transparent 34%),
+    radial-gradient(circle at 74% 24%, rgba(251, 146, 60, .24), transparent 32%),
+    linear-gradient(135deg, rgba(69, 10, 10, .78), rgba(17, 7, 2, .46)) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-aurora .hero-live-pulse {
+  background:
+    linear-gradient(115deg, rgba(34, 197, 94, .22), transparent 28%, rgba(168, 85, 247, .24), transparent 58%, rgba(34, 211, 238, .18)),
+    radial-gradient(circle at 72% 30%, rgba(45, 212, 191, .18), transparent 34%),
+    linear-gradient(135deg, rgba(2, 24, 34, .76), rgba(2, 6, 23, .44)) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-quantum .hero-live-pulse {
+  background:
+    radial-gradient(circle at 18% 78%, rgba(34, 211, 238, .24), transparent 22%),
+    radial-gradient(circle at 52% 42%, rgba(168, 85, 247, .2), transparent 24%),
+    radial-gradient(circle at 82% 24%, rgba(250, 204, 21, .13), transparent 18%),
+    linear-gradient(135deg, rgba(15, 23, 42, .78), rgba(2, 6, 23, .44)) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-radar-scan .hero-live-pulse,
+body.is-home-page #dashboard .home-command-hero.hero-fx-sonar-wave .hero-live-pulse {
+  background:
+    repeating-radial-gradient(circle at 74% 52%, rgba(45, 212, 191, .2) 0 2px, transparent 3px 34px),
+    radial-gradient(circle at 28% 78%, rgba(14, 165, 233, .2), transparent 34%),
+    linear-gradient(135deg, rgba(2, 44, 34, .74), rgba(2, 8, 23, .44)) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-solar-system .hero-live-pulse {
+  background:
+    radial-gradient(circle at 78% 30%, rgba(251, 191, 36, .3), transparent 20%),
+    repeating-radial-gradient(circle at 78% 30%, transparent 0 38px, rgba(255,255,255,.12) 39px 40px, transparent 41px 70px),
+    radial-gradient(circle at 22% 78%, rgba(34, 211, 238, .18), transparent 34%),
+    linear-gradient(135deg, rgba(2, 6, 23, .84), rgba(15, 23, 42, .44)) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-jellyfish-ocean .hero-live-pulse {
+  background:
+    radial-gradient(ellipse at 22% 72%, rgba(45, 212, 191, .28), transparent 28%),
+    radial-gradient(ellipse at 72% 32%, rgba(192, 132, 252, .2), transparent 24%),
+    repeating-radial-gradient(ellipse at 55% 110%, rgba(125, 211, 252, .15) 0 11px, transparent 12px 30px),
+    linear-gradient(180deg, rgba(3, 35, 54, .82), rgba(1, 8, 22, .5)) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-gotham-signal .hero-live-pulse {
+  background:
+    radial-gradient(circle at 76% 28%, rgba(250, 204, 21, .24), transparent 18%),
+    linear-gradient(180deg, transparent 0 54%, rgba(15, 23, 42, .72) 55% 100%),
+    repeating-linear-gradient(90deg, transparent 0 44px, rgba(148, 163, 184, .13) 45px 49px),
+    linear-gradient(135deg, rgba(2, 6, 23, .9), rgba(17, 24, 39, .48)) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-soccer-field .hero-live-pulse {
+  background:
+    radial-gradient(circle at 74% 40%, rgba(255,255,255,.18), transparent 10%),
+    linear-gradient(90deg, transparent 48%, rgba(255,255,255,.16) 49% 51%, transparent 52%),
+    repeating-linear-gradient(90deg, rgba(22, 163, 74, .22) 0 80px, rgba(21, 128, 61, .18) 81px 160px),
+    linear-gradient(135deg, rgba(5, 46, 22, .82), rgba(2, 20, 12, .46)) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-lyric-wave .hero-live-pulse {
+  background:
+    repeating-linear-gradient(90deg, rgba(236, 72, 153, .16) 0 5px, transparent 6px 22px),
+    radial-gradient(circle at 24% 76%, rgba(34, 211, 238, .22), transparent 28%),
+    radial-gradient(circle at 78% 24%, rgba(168, 85, 247, .24), transparent 30%),
+    linear-gradient(135deg, rgba(24, 10, 38, .78), rgba(2, 6, 23, .46)) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-starship-orbit .hero-live-pulse {
+  background:
+    radial-gradient(circle at 78% 28%, rgba(251, 191, 36, .24), transparent 18%),
+    repeating-radial-gradient(circle at 78% 28%, transparent 0 34px, rgba(125, 211, 252, .12) 35px 36px, transparent 37px 68px),
+    linear-gradient(115deg, transparent 0 52%, rgba(34, 211, 238, .18) 54%, transparent 60%),
+    linear-gradient(135deg, rgba(2, 6, 23, .86), rgba(17, 24, 39, .45)) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero.hero-fx-nebula-garden .hero-live-pulse {
+  background:
+    radial-gradient(circle at 20% 75%, rgba(244, 114, 182, .23), transparent 25%),
+    radial-gradient(circle at 68% 20%, rgba(34, 211, 238, .2), transparent 27%),
+    radial-gradient(circle at 82% 72%, rgba(132, 204, 22, .16), transparent 26%),
+    linear-gradient(135deg, rgba(17, 7, 31, .82), rgba(2, 6, 23, .46)) !important;
+}
+
+@keyframes heroFxSceneBreath {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes heroFxLayerDrift {
+  0%, 100% { transform: translate3d(-1%, -1%, 0) scale(1); }
+  50% { transform: translate3d(1%, 1%, 0) scale(1.035); }
+}
+
+@keyframes heroFxLightSweep {
+  0%, 100% { transform: translateX(-38%); }
+  50% { transform: translateX(38%); }
+}
+
+@keyframes heroFxRestartPulse {
+  0% { filter: saturate(1.35) brightness(1.12); }
+  100% { filter: saturate(1) brightness(1); }
+}
+
+/* Focused FX cleanup: one blended hero scene, no visible FX label outside the button. */
+body.is-home-page #dashboard .hero-fx-status {
+  display: none !important;
+}
+
+body.is-home-page #dashboard .home-command-hero[class*="hero-fx-"] .hero-live-pulse {
+  overflow: hidden !important;
+  isolation: isolate !important;
+}
+
+body.is-home-page #dashboard .home-command-hero[class*="hero-fx-"] .hero-live-pulse::before {
+  opacity: .22 !important;
+  background:
+    linear-gradient(90deg, rgba(2, 6, 23, .72), rgba(2, 6, 23, .24) 42%, rgba(2, 6, 23, .68)),
+    radial-gradient(circle at 74% 28%, rgba(255,255,255,.08), transparent 30%) !important;
+  mix-blend-mode: normal !important;
+  animation: heroFxLayerDrift 28s ease-in-out infinite !important;
+}
+
+body.is-home-page #dashboard .home-command-hero[class*="hero-fx-"] .hero-live-pulse::after {
+  opacity: 0 !important;
+  animation: none !important;
+}
+
+.prayer-dashboard-format {
+  justify-content: flex-start !important;
+  margin: -6px 0 14px !important;
+  padding: 10px !important;
+  border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent) !important;
+  border-radius: 14px !important;
+  background: color-mix(in srgb, var(--card) 70%, transparent) !important;
+}
+
+.prayer-dashboard-format span {
+  color: var(--muted) !important;
+  font-size: .76rem !important;
+  font-weight: 900 !important;
+  letter-spacing: .04em !important;
+  text-transform: uppercase !important;
+}
+
+/* Home Hero FX final polish: tiny button, rectangular command panel. */
+body.is-home-page #dashboard .hero-fx-status {
+  display: none !important;
+}
+
+body.is-home-page #dashboard .home-command-hero {
+  border-radius: 18px !important;
+  overflow: hidden !important;
+}
+
+body.is-home-page #dashboard .hero-pulse-style-button {
+  position: absolute !important;
+  right: clamp(12px, 2vw, 22px) !important;
+  bottom: clamp(70px, 7vw, 96px) !important;
+  z-index: 12 !important;
+  width: 34px !important;
+  height: 34px !important;
+  min-width: 34px !important;
+  min-height: 34px !important;
+  gap: 0 !important;
+  margin: 0 !important;
+  padding: 3px !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+}
+
+body.is-home-page #dashboard .hero-pulse-style-button span {
+  width: 26px !important;
+  height: 26px !important;
+  font-size: .62rem !important;
+  flex: 0 0 26px !important;
+}
+
+body.is-home-page #dashboard .hero-pulse-style-button b {
+  max-width: 0 !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  transition: max-width .22s ease, opacity .18s ease, margin-left .18s ease !important;
+}
+
+body.is-home-page #dashboard .hero-pulse-style-button.is-showing-fx-name {
+  width: auto !important;
+  max-width: min(260px, 46vw) !important;
+  padding-right: 10px !important;
+  gap: 7px !important;
+}
+
+body.is-home-page #dashboard .hero-pulse-style-button.is-showing-fx-name b {
+  max-width: min(190px, 34vw) !important;
+  opacity: 1 !important;
+  text-overflow: ellipsis !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .hero-pulse-style-button {
+  top: 14px !important;
+  right: 128px !important;
+  bottom: auto !important;
+  position: absolute !important;
+  z-index: 7 !important;
+  pointer-events: auto !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse * {
+  pointer-events: none;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-marquee,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-marquee *,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .hero-pulse-style-button,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .hero-pulse-style-button * {
+  pointer-events: auto;
+}
+
+.header-essentials-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 8px 14px;
+  border: 1px solid color-mix(in srgb, var(--primary, #38bdf8) 55%, transparent);
+  border-radius: 13px;
+  background:
+    radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--accent, #a78bfa) 34%, transparent), transparent 34%),
+    linear-gradient(135deg, color-mix(in srgb, var(--surface, #0f172a) 86%, #111827), color-mix(in srgb, var(--primary, #38bdf8) 18%, var(--surface-2, #111827)));
+  color: var(--text, #f8fafc);
+  box-shadow: 0 0 24px color-mix(in srgb, var(--primary, #38bdf8) 18%, transparent);
+  cursor: pointer;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.header-essentials-btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent, #a78bfa);
+  box-shadow: 0 0 30px color-mix(in srgb, var(--accent, #a78bfa) 28%, transparent);
+}
+
+.essentials-button-icon {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--primary, #38bdf8), var(--accent, #a78bfa));
+  color: #06111f;
+  font-weight: 900;
+}
+
+.essentials-doc-page {
+  padding-bottom: 80px;
+}
+
+.essentials-doc-shell {
+  display: grid;
+  gap: 16px;
+}
+
+.essentials-doc-hero,
+.essentials-live-pulse,
+.essentials-motivation-strip,
+.essentials-feature-card,
+.essentials-mini-card,
+.essentials-action,
+.essentials-news-chip {
+  border: 1px solid color-mix(in srgb, var(--border, #334155) 70%, transparent);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--surface, #0f172a) 86%, transparent), color-mix(in srgb, var(--surface-2, #111827) 78%, transparent));
+  box-shadow: 0 18px 55px rgba(0, 0, 0, .28), inset 0 1px 0 rgba(255, 255, 255, .06);
+  backdrop-filter: blur(18px);
+}
+
+.essentials-doc-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: clamp(18px, 3vw, 34px);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 15% 20%, color-mix(in srgb, var(--primary, #38bdf8) 24%, transparent), transparent 28%),
+    radial-gradient(circle at 85% 10%, color-mix(in srgb, var(--accent, #a78bfa) 24%, transparent), transparent 32%),
+    linear-gradient(135deg, color-mix(in srgb, var(--surface, #0f172a) 88%, #030712), color-mix(in srgb, var(--primary, #38bdf8) 12%, #030712));
+}
+
+.essentials-doc-hero h2 {
+  margin: 4px 0 8px;
+  font-size: clamp(2rem, 5vw, 4.7rem);
+  letter-spacing: 0;
+}
+
+.essentials-doc-hero p {
+  max-width: 780px;
+  color: var(--muted, #94a3b8);
+}
+
+.essentials-live-pulse {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.essentials-live-pulse article {
+  min-height: 94px;
+  padding: 16px;
+  border-right: 1px solid color-mix(in srgb, var(--border, #334155) 70%, transparent);
+}
+
+.essentials-live-pulse article:last-child {
+  border-right: 0;
+}
+
+.essentials-live-pulse small,
+.essentials-mini-card small,
+.essentials-feature-card small,
+.essentials-news-chip small {
+  display: block;
+  color: var(--primary, #38bdf8);
+  font-size: .72rem;
+  text-transform: uppercase;
+}
+
+.essentials-live-pulse strong,
+.essentials-news-chip span {
+  display: -webkit-box;
+  margin-top: 6px;
+  overflow: hidden;
+  color: var(--text, #f8fafc);
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.essentials-motivation-strip {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) minmax(220px, 420px) auto;
+  align-items: center;
+  gap: 20px;
+  min-height: 92px;
+  padding: 18px;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.essentials-motivation-strip strong {
+  display: block;
+  font-size: clamp(1.4rem, 3vw, 2.7rem);
+  color: transparent;
+  background: linear-gradient(90deg, var(--accent, #a78bfa), var(--primary, #38bdf8), #facc15);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.essentials-heartbeat {
+  position: relative;
+  height: 30px;
+}
+
+.essentials-heartbeat::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary, #38bdf8), var(--accent, #a78bfa), transparent);
+  box-shadow: 0 0 16px var(--primary, #38bdf8);
+}
+
+.essentials-heartbeat i {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 24px;
+  height: 18px;
+  border-top: 2px solid var(--primary, #38bdf8);
+  border-left: 2px solid var(--primary, #38bdf8);
+  transform: skewX(-28deg);
+  animation: essentialsBeat 3s linear infinite;
+}
+
+.essentials-heartbeat i:nth-child(2) { animation-delay: .75s; }
+.essentials-heartbeat i:nth-child(3) { animation-delay: 1.5s; }
+.essentials-heartbeat i:nth-child(4) { animation-delay: 2.25s; }
+
+.essentials-rocket {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--primary, #38bdf8) 18%, transparent);
+  animation: essentialsRocket 4.8s ease-in-out infinite;
+}
+
+.essentials-category-row,
+.essentials-actions-grid,
+.essentials-card-grid,
+.essentials-main-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.essentials-category-row {
+  grid-template-columns: repeat(8, minmax(130px, 1fr));
+}
+
+.essentials-news-chip,
+.essentials-action {
+  min-height: 88px;
+  padding: 14px;
+  border-radius: 14px;
+  color: var(--text, #f8fafc);
+  text-align: left;
+  cursor: pointer;
+}
+
+.essentials-main-grid {
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+}
+
+.essentials-feature-card {
+  min-height: 230px;
+  padding: 22px;
+  border-radius: 20px;
+}
+
+.essentials-feature-card h3 {
+  margin: 10px 0;
+  font-size: clamp(1.35rem, 2vw, 2rem);
+}
+
+.essentials-actions-grid {
+  grid-template-columns: repeat(8, minmax(120px, 1fr));
+}
+
+.essentials-action {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.essentials-action b {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--primary, #38bdf8) 18%, transparent);
+  color: var(--primary, #38bdf8);
+}
+
+.essentials-card-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.essentials-mini-card {
+  position: relative;
+  min-height: 210px;
+  padding: 18px;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.essentials-mini-card::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  bottom: -42px;
+  width: 120px;
+  height: 120px;
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: 50%;
+}
+
+.essentials-mini-card h3 {
+  margin: 10px 0 8px;
+}
+
+.essentials-mini-card p {
+  min-height: 52px;
+  color: var(--muted, #94a3b8);
+}
+
+.essentials-news-chip:hover,
+.essentials-action:hover,
+.essentials-mini-card:hover,
+.essentials-feature-card:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--primary, #38bdf8) 70%, transparent);
+}
+
+.essentials-mini-card.tone-0 { background: linear-gradient(135deg, rgba(14, 165, 233, .22), rgba(15, 23, 42, .82)); }
+.essentials-mini-card.tone-1 { background: linear-gradient(135deg, rgba(16, 185, 129, .22), rgba(15, 23, 42, .82)); }
+.essentials-mini-card.tone-2 { background: linear-gradient(135deg, rgba(168, 85, 247, .22), rgba(15, 23, 42, .82)); }
+.essentials-mini-card.tone-3 { background: linear-gradient(135deg, rgba(245, 158, 11, .22), rgba(15, 23, 42, .82)); }
+.essentials-mini-card.tone-4 { background: linear-gradient(135deg, rgba(236, 72, 153, .22), rgba(15, 23, 42, .82)); }
+.essentials-mini-card.tone-5 { background: linear-gradient(135deg, rgba(20, 184, 166, .22), rgba(15, 23, 42, .82)); }
+.essentials-mini-card.tone-6 { background: linear-gradient(135deg, rgba(99, 102, 241, .22), rgba(15, 23, 42, .82)); }
+.essentials-mini-card.tone-7 { background: linear-gradient(135deg, rgba(248, 113, 113, .22), rgba(15, 23, 42, .82)); }
+
+@keyframes essentialsBeat {
+  0% { transform: translateX(-20%) skewX(-28deg); opacity: 0; }
+  12% { opacity: 1; }
+  100% { transform: translateX(420px) skewX(-28deg); opacity: 0; }
+}
+
+@keyframes essentialsRocket {
+  0%, 100% { transform: translateY(0) rotate(-8deg); filter: drop-shadow(0 0 12px var(--primary, #38bdf8)); }
+  50% { transform: translateY(-7px) translateX(8px) rotate(6deg); filter: drop-shadow(0 0 20px var(--accent, #a78bfa)); }
+}
+
+@media (max-width: 1100px) {
+  .essentials-live-pulse,
+  .essentials-category-row,
+  .essentials-actions-grid,
+  .essentials-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .essentials-main-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .header-essentials-btn strong {
+    display: none;
+  }
+
+  .essentials-doc-hero,
+  .essentials-motivation-strip {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .essentials-live-pulse,
+  .essentials-category-row,
+  .essentials-actions-grid,
+  .essentials-card-grid,
+  .essentials-main-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse > strong {
+  position: absolute !important;
+  top: 15px !important;
+  right: 16px !important;
+  z-index: 6 !important;
+}
+
+@media (max-width: 640px) {
+  body.is-home-page #dashboard .home-command-intro .hero-live-pulse .hero-pulse-style-button {
+    top: 10px !important;
+    right: 92px !important;
+  }
+
+  body.is-home-page #dashboard .home-command-intro .hero-live-pulse > strong {
+    top: 11px !important;
+    right: 10px !important;
+    font-size: .58rem !important;
+    padding: 5px 7px !important;
+  }
+}
+
+/* Final hero clock placement override: Active Date sits above a smaller analog clock. */
+body.is-home-page #dashboard .home-command-hero .hero-clock-stack {
+  position: relative !important;
+  z-index: 12 !important;
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 10px !important;
+  justify-self: end !important;
+  align-self: center !important;
+  width: min(100%, 270px) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero .hero-clock-stack .home-active-date {
+  position: relative !important;
+  z-index: 13 !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 7px 9px !important;
+  border-radius: 12px !important;
+  justify-self: stretch !important;
+}
+
+body.is-home-page #dashboard .home-command-hero .hero-clock-stack .hero-clock-console {
+  position: relative !important;
+  z-index: 12 !important;
+  width: 100% !important;
+  padding: 10px !important;
+}
+
+body.is-home-page #dashboard .home-command-hero .hero-clock-stack .hero-analog-clock {
+  width: clamp(132px, 12vw, 178px) !important;
+  height: clamp(132px, 12vw, 178px) !important;
+}
+
+body.is-home-page #dashboard .home-command-hero .hero-fx-system-button {
+  justify-self: center !important;
+  min-height: 24px !important;
+  margin: 4px auto 0 !important;
+  padding: 3px 6px !important;
+  border-radius: 999px !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-marquee span,
+body.is-home-page #dashboard .pulse-marquee span,
+#heroPulseMessage {
+  animation-duration: 155s !important;
+}
+
+@media (max-width: 840px) {
+  body.is-home-page #dashboard .home-command-hero .hero-clock-stack {
+    justify-self: stretch !important;
+    width: 100% !important;
+  }
+}
+
+/* Final topbar polish: modern utility controls, logo untouched. */
+.app-header .header-actions {
+  gap: 9px !important;
+}
+
+.app-header .header-actions > button:not(.brand-button),
+.app-header .save-control-cluster {
+  flex: 0 0 auto !important;
+}
+
+.app-header .page-chooser,
+.app-header .header-essentials-btn,
+.app-header .dashboard-customize-control,
+.app-header .header-settings-button,
+.app-header .notifications-button,
+.app-header .header-profile-button,
+.app-header .save-control-cluster .header-icon-btn,
+.app-header .save-control-cluster .ghost-btn {
+  border: 1px solid color-mix(in srgb, var(--primary, #38bdf8) 34%, transparent) !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.08), transparent 42%),
+    radial-gradient(circle at 18% 20%, color-mix(in srgb, var(--primary, #38bdf8) 18%, transparent), transparent 34%),
+    color-mix(in srgb, var(--surface, #0f172a) 78%, transparent) !important;
+  color: var(--text, #f8fafc) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 12px 28px rgba(0,0,0,.18),
+    0 0 18px color-mix(in srgb, var(--primary, #38bdf8) 12%, transparent) !important;
+  backdrop-filter: blur(18px) !important;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease, background .18s ease !important;
+}
+
+.app-header .page-chooser:hover,
+.app-header .header-essentials-btn:hover,
+.app-header .dashboard-customize-control:hover,
+.app-header .header-settings-button:hover,
+.app-header .notifications-button:hover,
+.app-header .header-profile-button:hover,
+.app-header .save-control-cluster .header-icon-btn:hover,
+.app-header .save-control-cluster .ghost-btn:hover {
+  transform: translateY(-1px) !important;
+  border-color: color-mix(in srgb, var(--accent, #a78bfa) 70%, transparent) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.12),
+    0 14px 34px rgba(0,0,0,.24),
+    0 0 28px color-mix(in srgb, var(--accent, #a78bfa) 24%, transparent) !important;
+}
+
+.app-header .page-chooser {
+  min-width: 162px !important;
+  min-height: 42px !important;
+  border-radius: 13px !important;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--primary, #38bdf8) 22%, var(--surface, #0f172a)), color-mix(in srgb, var(--accent, #a78bfa) 16%, var(--surface-2, #111827))) !important;
+}
+
+.app-header .header-essentials-btn {
+  min-height: 42px !important;
+  padding: 7px 13px !important;
+  border-radius: 13px !important;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, #22d3ee 30%, var(--surface, #0f172a)), color-mix(in srgb, #8b5cf6 22%, var(--surface-2, #111827))) !important;
+}
+
+.app-header .essentials-button-icon {
+  width: 23px !important;
+  height: 23px !important;
+  border-radius: 9px !important;
+}
+
+.app-header .save-control-cluster {
+  padding: 3px !important;
+  border-radius: 15px !important;
+  gap: 4px !important;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.07), rgba(255,255,255,.02)),
+    color-mix(in srgb, var(--surface, #0f172a) 70%, transparent) !important;
+}
+
+.app-header .save-control-cluster .header-icon-btn,
+.app-header .save-control-cluster .ghost-btn,
+.app-header .dashboard-customize-control,
+.app-header .header-settings-button,
+.app-header .notifications-button {
+  width: 38px !important;
+  min-width: 38px !important;
+  height: 38px !important;
+  min-height: 38px !important;
+  padding: 5px !important;
+  border-radius: 12px !important;
+}
+
+.app-header .save-control-cluster .ghost-btn {
+  width: 54px !important;
+  font-size: .58rem !important;
+  line-height: 1.05 !important;
+}
+
+.app-header .header-profile-button {
+  width: 42px !important;
+  height: 42px !important;
+  border-radius: 999px !important;
+  overflow: hidden !important;
+}
+
+body.is-home-page #dashboard .home-command-hero .home-command-intro .hero-fx-system-button {
+  display: flex !important;
+  margin: 8px auto 0 !important;
+  transform: none !important;
+}
+
+body.is-home-page #dashboard .home-command-hero .hero-clock-stack .hero-fx-system-button {
+  display: none !important;
+}
+
+/* Final placement: compact System/FX button lives beside Home hero time. */
+body.is-home-page #dashboard .home-command-hero .home-live-date {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+}
+
+body.is-home-page #dashboard .home-command-hero .home-live-date .hero-fx-system-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  min-height: 22px !important;
+  height: 22px !important;
+  margin: 0 !important;
+  padding: 2px 5px !important;
+  border-radius: 999px !important;
+  font-size: .54rem !important;
+  line-height: 1 !important;
+  transform: none !important;
+}
+
+body.is-home-page #dashboard .home-command-hero .home-live-date .hero-fx-system-button #heroPulseStatus {
+  min-height: 16px !important;
+  padding: 2px 4px !important;
+  font-size: .5rem !important;
+}
+
+body.is-home-page #dashboard .home-command-hero .home-live-date .hero-fx-system-button > span {
+  width: 16px !important;
+  height: 16px !important;
+  font-size: .48rem !important;
+}
+
+body.is-home-page #dashboard .home-command-hero .home-live-date .hero-fx-system-button b {
+  font-size: .52rem !important;
+}
+
+.pulse-cloud-one { color: #e0f2fe; top: 22%; left: -16%; animation-delay: 5.2s; animation-duration: 22s; }
+.pulse-cloud-two { color: #bfdbfe; top: 58%; left: -18%; animation-delay: 13.6s; animation-duration: 24s; }
+.pulse-leaf-two { color: #86efac; top: 31%; left: -15%; animation-delay: 15.1s; animation-duration: 18s; }
+.pulse-color-one { color: #22d3ee; top: 52%; left: -12%; animation-delay: 8.7s; animation-duration: 13.5s; }
+.pulse-color-two { color: #fb7185; top: 14%; left: -14%; animation-delay: 17.3s; animation-duration: 16s; }
+.pulse-sparkle-one { color: #fef08a; top: 72%; left: -17%; animation-delay: 10.8s; animation-duration: 19s; }
+
+/* Final hero clock compact pass. */
+body.is-home-page #dashboard .home-command-hero .hero-clock-stack {
+  width: min(100%, 238px) !important;
+  gap: 7px !important;
+}
+
+body.is-home-page #dashboard .home-command-hero .hero-clock-stack .home-active-date {
+  padding: 5px 7px !important;
+  border-radius: 10px !important;
+  font-size: .68rem !important;
+}
+
+body.is-home-page #dashboard .home-command-hero .hero-clock-stack .home-active-date input {
+  min-height: 26px !important;
+  height: 26px !important;
+  padding: 3px 6px !important;
+  font-size: .72rem !important;
+}
+
+body.is-home-page #dashboard .home-command-hero .hero-clock-stack .hero-clock-console {
+  padding: 8px !important;
+  border-radius: 18px !important;
+}
+
+body.is-home-page #dashboard .home-command-hero .hero-clock-stack .hero-analog-clock {
+  width: clamp(116px, 10.5vw, 158px) !important;
+  height: clamp(116px, 10.5vw, 158px) !important;
+  margin-bottom: 6px !important;
+}
+
+body.is-home-page #dashboard .home-command-hero .hero-clock-stack #heroAnalogTime {
+  font-size: .88rem !important;
+}
+
+body.is-home-page #dashboard .home-command-hero .hero-clock-stack #heroClockLocation {
+  font-size: .66rem !important;
+}
+
+/* Full-pass readable marquee: complete text exits before the next update. */
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-marquee {
+  overflow: hidden !important;
+  white-space: nowrap !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-marquee span,
+body.is-home-page #dashboard .pulse-marquee span,
+#heroPulseMessage {
+  display: inline-block !important;
+  width: auto !important;
+  min-width: max-content !important;
+  padding-left: 100% !important;
+  animation: fahimosFullMarquee 132s linear infinite !important;
+  will-change: transform !important;
+}
+
+@keyframes fahimosFullMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+@media (max-width: 760px) {
+  body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-marquee span,
+  body.is-home-page #dashboard .pulse-marquee span,
+  #heroPulseMessage {
+    animation-duration: 148s !important;
+  }
+}
+
+/* Profile button: uploaded image first, otherwise clean initials. */
+.app-header .header-profile-button {
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
+  display: inline-grid !important;
+  place-items: center !important;
+}
+
+.app-header .header-profile-button span {
+  display: inline-grid !important;
+  place-items: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: inherit !important;
+  font-weight: 900 !important;
+  letter-spacing: .02em !important;
+  color: #fff !important;
+  background:
+    radial-gradient(circle at 28% 20%, rgba(255,255,255,.18), transparent 36%),
+    linear-gradient(135deg, color-mix(in srgb, var(--primary, #38bdf8) 55%, #0f172a), color-mix(in srgb, var(--accent, #a78bfa) 55%, #111827)) !important;
+}
+
+.app-header .header-profile-button.has-profile-image span {
+  opacity: 0 !important;
+}
+
+.app-header .header-profile-button.has-profile-image {
+  background-image:
+    linear-gradient(180deg, rgba(255,255,255,.10), rgba(0,0,0,.08)),
+    var(--profile-avatar-image) !important;
+  background-size: cover, var(--profile-avatar-size, cover) !important;
+  background-position: center, var(--profile-avatar-position, center) !important;
+  background-repeat: no-repeat, no-repeat !important;
+}
+
+/* Essentials page and top controls: premium command-doc finish. */
+.app-header .header-essentials-btn {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+}
+
+.app-header .header-essentials-btn::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 2px !important;
+  border-radius: inherit !important;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,.14), transparent) !important;
+  transform: translateX(-130%) !important;
+  animation: essentialsButtonSheen 5.8s ease-in-out infinite !important;
+  z-index: -1 !important;
+}
+
+@keyframes essentialsButtonSheen {
+  0%, 58% { transform: translateX(-130%); }
+  78%, 100% { transform: translateX(130%); }
+}
+
+.essentials-doc-page .essentials-doc-hero {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 18px !important;
+  border-radius: 24px !important;
+  background:
+    radial-gradient(circle at 10% 15%, rgba(34, 211, 238, .22), transparent 34%),
+    radial-gradient(circle at 86% 22%, rgba(168, 85, 247, .22), transparent 32%),
+    linear-gradient(135deg, rgba(15, 23, 42, .88), rgba(2, 6, 23, .76)) !important;
+  border: 1px solid color-mix(in srgb, var(--primary, #38bdf8) 38%, transparent) !important;
+  box-shadow: 0 22px 60px rgba(0,0,0,.32), 0 0 34px color-mix(in srgb, var(--primary, #38bdf8) 14%, transparent) !important;
+}
+
+.essentials-doc-page .essentials-doc-hero h2 {
+  letter-spacing: .01em !important;
+}
+
+.essentials-doc-page .essentials-doc-title {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  min-width: 0 !important;
+}
+
+.essentials-doc-page .essentials-doc-logo {
+  position: relative !important;
+  flex: 0 0 58px !important;
+  width: 58px !important;
+  height: 58px !important;
+  display: grid !important;
+  place-items: center !important;
+  border-radius: 20px !important;
+  color: #fff !important;
+  background:
+    radial-gradient(circle at 24% 18%, rgba(255,255,255,.28), transparent 28%),
+    conic-gradient(from 220deg, #22d3ee, #8b5cf6, #14b8a6, #f59e0b, #22d3ee) !important;
+  box-shadow: 0 0 32px rgba(34, 211, 238, .32), inset 0 1px 0 rgba(255,255,255,.18) !important;
+  overflow: hidden !important;
+}
+
+.essentials-doc-page .essentials-doc-logo b {
+  position: relative !important;
+  z-index: 1 !important;
+  font-size: 1.55rem !important;
+  font-weight: 950 !important;
+}
+
+.essentials-doc-page .essentials-doc-logo i {
+  position: absolute !important;
+  inset: 10px !important;
+  border: 1px solid rgba(255,255,255,.38) !important;
+  border-radius: 16px !important;
+  transform: rotate(12deg) !important;
+}
+
+.essentials-doc-page .essentials-back-home {
+  flex: 0 0 auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  min-height: 42px !important;
+  padding: 8px 14px !important;
+  border-radius: 14px !important;
+  border: 1px solid rgba(255,255,255,.16) !important;
+  background:
+    linear-gradient(135deg, rgba(34, 211, 238, .2), rgba(139, 92, 246, .28)),
+    rgba(15, 23, 42, .72) !important;
+  box-shadow: 0 14px 34px rgba(0,0,0,.28), 0 0 24px rgba(34, 211, 238, .18) !important;
+}
+
+.essentials-doc-page .essentials-back-home span {
+  display: inline-grid !important;
+  place-items: center !important;
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 10px !important;
+  background: rgba(255,255,255,.1) !important;
+}
+
+/* Essentials Doc collapsible section controls. */
+.essentials-doc-page .essentials-collapse-toggle {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 14px !important;
+  width: 100% !important;
+  min-height: 54px !important;
+  padding: 10px 14px !important;
+  border: 1px solid color-mix(in srgb, var(--primary, #38bdf8) 28%, transparent) !important;
+  border-radius: 16px !important;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--primary, #38bdf8) 14%, transparent), color-mix(in srgb, var(--accent, #a78bfa) 12%, transparent)),
+    rgba(15, 23, 42, .58) !important;
+  color: var(--text, #f8fafc) !important;
+  text-align: left !important;
+  box-shadow: 0 14px 38px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.07) !important;
+}
+
+.essentials-doc-page .essentials-collapse-toggle span {
+  display: grid !important;
+  gap: 2px !important;
+}
+
+.essentials-doc-page .essentials-collapse-toggle small {
+  color: var(--muted, #94a3b8) !important;
+  font-size: .72rem !important;
+}
+
+.essentials-doc-page .essentials-collapse-toggle strong {
+  color: var(--text, #f8fafc) !important;
+  font-size: 1rem !important;
+}
+
+.essentials-doc-page .essentials-collapse-toggle b {
+  display: grid !important;
+  place-items: center !important;
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 10px !important;
+  background: color-mix(in srgb, var(--primary, #38bdf8) 18%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--primary, #38bdf8) 42%, transparent) !important;
+}
+
+.essentials-doc-page .essentials-collapse-target {
+  transition: opacity .22s ease, transform .22s ease !important;
+}
+
+.essentials-doc-page .essentials-collapse-target.is-collapsed {
+  display: none !important;
+}
+
+.essentials-doc-page .essentials-feature-card,
+.essentials-doc-page .essentials-mini-card,
+.essentials-doc-page .essentials-news-chip,
+.essentials-doc-page .essentials-action {
+  border-radius: 16px !important;
+}
+
+/* Larger cinematic hero floaters. */
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-cosmic-float,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-flower-four,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-flower-five,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-heart-three,
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-hero-float {
+  position: absolute !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+  filter: drop-shadow(0 0 14px currentColor) !important;
+  opacity: .62 !important;
+  animation-name: pulseFloatAcross, pulseFloatBob !important;
+  animation-timing-function: linear, ease-in-out !important;
+  animation-iteration-count: infinite, infinite !important;
+}
+
+.pulse-sun-one { color: #fde68a; top: 10%; left: -20%; font-size: 2.1rem; animation-duration: 28s, 5.2s; animation-delay: 2s, 0s; }
+.pulse-earth-one { color: #60a5fa; top: 63%; left: -18%; font-size: 2rem; animation-duration: 31s, 6s; animation-delay: 10s, .4s; }
+.pulse-moon-two { color: #e5e7eb; top: 24%; left: -16%; font-size: 1.8rem; animation-duration: 34s, 7s; animation-delay: 16s, .8s; }
+.pulse-saturn-one { color: #fbbf24; top: 46%; left: -22%; font-size: 2.35rem; animation-duration: 38s, 5.8s; animation-delay: 6s, .2s; }
+.pulse-jupiter-one { color: #f59e0b; top: 72%; left: -20%; font-size: 2.2rem; animation-duration: 36s, 6.5s; animation-delay: 21s, 1s; }
+.pulse-blackhole-one { color: #c4b5fd; top: 31%; left: -26%; font-size: 4.8rem; animation-duration: 68s, 9s; animation-delay: 18s, .6s; opacity: .32 !important; }
+.pulse-starship-one { color: #93c5fd; top: 15%; left: -19%; font-size: 3.35rem; animation-duration: 54s, 6.8s; animation-delay: 26s, .2s; opacity: .48 !important; }
+.pulse-planet-huge { color: #facc15; top: 58%; left: -34%; font-size: 5.8rem; animation-duration: 82s, 10s; animation-delay: 34s, 1.2s; opacity: .26 !important; }
+.pulse-starfield-huge { color: #f8fafc; top: 6%; left: -22%; font-size: 3.9rem; animation-duration: 73s, 8.6s; animation-delay: 44s, .8s; opacity: .38 !important; }
+.pulse-flower-four { color: #f9a8d4; top: 18%; left: -14%; font-size: 1.5rem; animation-duration: 20s, 4.8s; animation-delay: 7s, .3s; }
+.pulse-flower-five { color: #bbf7d0; top: 66%; left: -13%; font-size: 1.35rem; animation-duration: 23s, 5.5s; animation-delay: 12s, .9s; }
+.pulse-heart-three { color: #fb7185; top: 38%; left: -12%; font-size: 1.45rem; animation-duration: 18s, 4.4s; animation-delay: 4s, .1s; }
+.pulse-animal-lion { color: #fbbf24; top: 26%; left: -18%; font-size: 2.35rem; animation-duration: 32s, 5.8s; animation-delay: 3.5s, .2s; }
+.pulse-animal-tiger { color: #fb923c; top: 57%; left: -16%; font-size: 1.85rem; animation-duration: 29s, 5.2s; animation-delay: 13.4s, .8s; }
+.pulse-animal-gorilla { color: #cbd5e1; top: 74%; left: -18%; font-size: 2.65rem; animation-duration: 41s, 7.2s; animation-delay: 18.5s, .4s; opacity: .5 !important; }
+.pulse-animal-dino { color: #86efac; top: 12%; left: -17%; font-size: 1.95rem; animation-duration: 35s, 6.3s; animation-delay: 24s, 1.1s; }
+.pulse-hero-spider { color: #f87171; top: 48%; left: -12%; font-size: 1.05rem; animation-duration: 19s, 3.8s; animation-delay: 5.8s, .2s; }
+.pulse-hero-cape { color: #60a5fa; top: 18%; left: -14%; font-size: 2.45rem; animation-duration: 26s, 4.6s; animation-delay: 10.6s, .6s; }
+.pulse-hero-bat { color: #a78bfa; top: 34%; left: -12%; font-size: 1.35rem; animation-duration: 21s, 4.2s; animation-delay: 16.1s, .3s; }
+.pulse-hero-shield { color: #93c5fd; top: 66%; left: -14%; font-size: 1.2rem; animation-duration: 25s, 4.9s; animation-delay: 27.2s, .1s; }
+.pulse-hero-mask { color: #f0abfc; top: 8%; left: -10%; font-size: .95rem; animation-duration: 22s, 4.1s; animation-delay: 31s, .7s; }
+.pulse-hero-lightning { color: #fde047; top: 82%; left: -12%; font-size: 1.4rem; animation-duration: 17s, 3.5s; animation-delay: 8.2s, .4s; }
+.pulse-car-one { color: #38bdf8; top: 70%; left: -14%; font-size: 1.8rem; animation-duration: 20s, 3.2s; animation-delay: 2s, .1s; }
+.pulse-car-two { color: #fb7185; top: 79%; left: -12%; font-size: 2.2rem; animation-duration: 16s, 2.9s; animation-delay: 9s, .2s; }
+.pulse-car-three { color: #facc15; top: 61%; left: -15%; font-size: 1.25rem; animation-duration: 24s, 3.8s; animation-delay: 15s, .3s; }
+.pulse-car-four { color: #22c55e; top: 86%; left: -16%; font-size: 1.55rem; animation-duration: 18s, 3.1s; animation-delay: 21s, .5s; }
+.pulse-car-five { color: #c084fc; top: 52%; left: -13%; font-size: 1rem; animation-duration: 23s, 4s; animation-delay: 28s, .6s; }
+.pulse-car-six { color: #f97316; top: 75%; left: -18%; font-size: 2.7rem; animation-duration: 37s, 5.6s; animation-delay: 34s, .9s; opacity: .48 !important; }
+
+@keyframes pulseFloatAcross {
+  0% { transform: translate3d(-8vw, 0, 0) rotate(-8deg); }
+  100% { transform: translate3d(118vw, 0, 0) rotate(18deg); }
+}
+
+@keyframes pulseFloatBob {
+  0%, 100% { margin-top: 0; }
+  50% { margin-top: -18px; }
+}
+
+/* Dynamic emoji stream: lots of variety, capped by JS for smooth performance. */
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-random-emoji {
+  position: absolute !important;
+  top: var(--emoji-top, 50%) !important;
+  left: -8vw !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  font-size: var(--emoji-size, 1.2rem) !important;
+  line-height: 1 !important;
+  opacity: var(--emoji-opacity, .34) !important;
+  filter: drop-shadow(0 0 12px rgba(255,255,255,.2)) drop-shadow(0 0 18px currentColor) !important;
+  animation:
+    heroEmojiStream var(--emoji-duration, 24s) linear var(--emoji-delay, 0s) forwards,
+    heroEmojiFloat 4.8s ease-in-out infinite !important;
+  transform: translate3d(0, 0, 0) rotate(var(--emoji-rotate, 0deg)) !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-random-emoji.is-feature-emoji {
+  filter:
+    drop-shadow(0 0 18px rgba(255,255,255,.22))
+    drop-shadow(0 0 28px color-mix(in srgb, var(--accent, #a78bfa) 42%, transparent)) !important;
+  opacity: min(var(--emoji-opacity, .42), .52) !important;
+}
+
+body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-random-emoji.is-signal-chip {
+  display: inline-grid !important;
+  place-items: center !important;
+  min-width: 42px !important;
+  height: 24px !important;
+  padding: 0 10px !important;
+  border: 1px solid color-mix(in srgb, var(--primary, #38bdf8) 42%, transparent) !important;
+  border-radius: 999px !important;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--surface, #071225) 76%, transparent), color-mix(in srgb, var(--accent, #a78bfa) 16%, transparent)) !important;
+  color: color-mix(in srgb, var(--text, #f8fafc) 92%, var(--primary, #38bdf8)) !important;
+  font-size: clamp(.62rem, var(--emoji-size, .9rem), .92rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: .08em !important;
+  text-transform: uppercase !important;
+  box-shadow: 0 0 24px color-mix(in srgb, var(--primary, #38bdf8) 16%, transparent) !important;
+}
+
+/* Customize Center compression: two real modes, less duplicate clutter. */
+#pageAppearancePanel.customize-dashboard-panel[data-customize-mode="colors"] .customize-layout-section,
+#pageAppearancePanel.customize-dashboard-panel[data-customize-mode="layout"] .customize-colors-section {
+  display: none !important;
+}
+
+#pageAppearancePanel.customize-dashboard-panel .page-preset-block,
+#pageAppearancePanel.customize-dashboard-panel #customizeAnimationSettings {
+  display: none !important;
+}
+
+#pageAppearancePanel.customize-dashboard-panel .customize-mode-switcher {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 2 !important;
+  padding: 4px 0 8px !important;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--bg, #020617) 92%, transparent), transparent) !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+#pageAppearancePanel.customize-dashboard-panel .customize-mode-button {
+  min-height: 64px !important;
+  align-items: center !important;
+  border-radius: 16px !important;
+  background:
+    radial-gradient(circle at 18% 18%, color-mix(in srgb, var(--primary, #38bdf8) 22%, transparent), transparent 38%),
+    linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.025)) !important;
+}
+
+#pageAppearancePanel.customize-dashboard-panel .customize-mode-button.is-active {
+  border-color: color-mix(in srgb, var(--accent, #a78bfa) 74%, transparent) !important;
+  box-shadow: 0 0 28px color-mix(in srgb, var(--accent, #a78bfa) 18%, transparent), inset 0 1px 0 rgba(255,255,255,.12) !important;
+}
+
+#pageAppearancePanel.customize-dashboard-panel .customize-section-toggle {
+  border-radius: 14px !important;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--primary, #38bdf8) 16%, transparent), color-mix(in srgb, var(--accent, #a78bfa) 12%, transparent)),
+    rgba(255,255,255,.035) !important;
+}
+
+#pageAppearancePanel.customize-dashboard-panel .customize-section-body {
+  padding-top: 8px !important;
+}
+
+#pageAppearancePanel.customize-dashboard-panel .customize-theme-grid {
+  max-height: 340px !important;
+  overflow: auto !important;
+  padding-right: 3px !important;
+}
+
+@keyframes heroEmojiStream {
+  0% {
+    translate: -10vw 0;
+    scale: .88;
+  }
+  12% {
+    opacity: var(--emoji-opacity, .55);
+  }
+  82% {
+    opacity: var(--emoji-opacity, .55);
+  }
+  100% {
+    translate: 118vw 0;
+    scale: 1.08;
+    opacity: 0;
+  }
+}
+
+@keyframes heroEmojiFloat {
+  0%, 100% { margin-top: 0; }
+  50% { margin-top: -20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.is-home-page #dashboard .home-command-intro .hero-live-pulse .pulse-random-emoji {
+    display: none !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .essentials-doc-page .essentials-doc-hero {
+    align-items: flex-start !important;
+    flex-direction: column !important;
+  }
+
+  .essentials-doc-page .essentials-doc-logo {
+    width: 48px !important;
+    height: 48px !important;
+    flex-basis: 48px !important;
+  }
+}
